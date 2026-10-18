@@ -1,41 +1,12 @@
 <!doctype html>
-<!--
-  ============================================================
-  SWIGGY MEAL MATCH · concept prototype (single file)
-  ============================================================
-  Personal PM portfolio concept. Not an official Swiggy feature,
-  not affiliated with Swiggy. All restaurants, menus, prices,
-  ratings and availability are fictional demo data.
-
-  HOW TO RUN
-    Double-click index.html. Works offline in any modern browser:
-    no build step, no npm, no CDN, no web fonts, no network calls.
-
-  HOW TO HOST
-    Upload this one file to any static host (GitHub Pages, Netlify
-    drop, Vercel static, S3, your own server). Nothing else needed.
-
-  FILE LIST
-    index.html   markup, styles (<style>), app logic, walkthrough
-                 scripts and mock data (<script>), all inline.
-
-  WHAT'S INSIDE THE SCRIPT
-    DISHES / RESTAURANTS_SRC   mock data + deterministic dish matcher
-    matchAll()                 complete / partial / hidden tiers
-    class Phone                one interactive phone (Before or After)
-    class Player               scripted "user POV" walkthrough: a finger
-                               that taps, types and scrolls the real UI
-    SCRIPT_*                   the walkthrough steps for each journey
-  ============================================================
--->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light only">
-<title>Meal Match – find one restaurant that has all your dishes | Concept prototype</title>
-<meta name="description" content="A product concept: search for sambar vada and dahi papdi chaat together and see only restaurants that have both. Interactive before-vs-after prototype by Ranganathan. Not affiliated with Swiggy.">
-<meta name="author" content="Ranganathan">
+<title>Meal Match – find one restaurant that has all your dishes</title>
+<meta name="description" content="A product concept: search for sambar vada and dahi papdi chaat together and see only restaurants that have both. Interactive before-vs-after prototype by Pavithra. Not affiliated with Swiggy.">
+<meta name="author" content="Pavithra">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#F26B21">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F26B21'/%3E%3Ccircle cx='25' cy='32' r='14' fill='none' stroke='%23fff' stroke-width='5'/%3E%3Ccircle cx='39' cy='32' r='14' fill='none' stroke='%23fff' stroke-width='5'/%3E%3C/svg%3E">
@@ -616,7 +587,7 @@ table.cmp{width:100%;border-collapse:collapse;min-width:640px}
   <div>
     <p class="eyebrow">PM case study · concept prototype</p>
     <h1>Meal Match for Swiggy search</h1>
-    <p class="problem">People think in meals ("sambar vada + dahi papdi chaat from one place"), but search works one dish at a time, so finding one restaurant with the whole combination means opening menus one by one. Evidence so far is directional: my own testing and informal conversations.</p>
+    <p class="problem">People think in meals ("sambar vada + dahi papdi chaat from one place"), but search works one dish at a time, so finding one restaurant with the whole combination means opening menus one by one.</p>
   </div>
   <div class="head-controls">
     <div class="seg" role="group" aria-label="Prototype view">
@@ -628,7 +599,7 @@ table.cmp{width:100%;border-collapse:collapse;min-width:640px}
   </div>
 </header>
 <main id="stage"></main>
-<footer><span>Concept prototype · not affiliated with Swiggy · demo data</span></footer>
+
 <div id="live" class="sr-only" aria-live="polite"></div>
 
 <script>
@@ -1615,9 +1586,7 @@ function mountCompare(){
     <div class="cmp-table-wrap"><table class="cmp"><caption class="sr-only">Swiggy today versus Swiggy with Meal Match for the same multi-dish task</caption>
       <thead><tr><th scope="col">Same task</th><th scope="col">Swiggy today</th><th scope="col">Swiggy with Meal Match</th></tr></thead>
       <tbody>${rows.map(r => `<tr><th scope="row">${esc(r[0])}</th><td>${esc(r[1])}</td><td class="after">${esc(r[2])}</td></tr>`).join('')}
-        <tr class="run"><th scope="row">Walkthrough above</th><td id="run-wb">Playing…</td><td class="after" id="run-wa">Waiting…</td></tr>
-        <tr class="run"><th scope="row">Your own run</th><td id="run-mb"></td><td class="after" id="run-ma"></td></tr></tbody></table></div>
-    <p class="cmp-foot">“Swiggy today” cells describe only what the reference screenshots show. All numbers come from this prototype with fictional data (the scripted walkthrough, or your own clicks in the Before / After tabs), counted up to the first restaurant with both dishes. They are not real-world measurements.</p>`;
+       </tbody></table></div>`;
   fillManualRows();
   APP.phones = {
     cb: new Phone(document.getElementById('host-cb'), 'before', {small:true, onUpdate: ph => updCmpMetrics('cb', ph)}),
