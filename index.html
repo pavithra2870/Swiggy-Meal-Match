@@ -70,6 +70,7 @@ button{cursor:pointer}
 .btn-ghost:hover{border-color:var(--ink)}
 .btn-ghost svg{width:16px;height:16px}
 #stage{max-width:1180px;margin:0 auto;padding:6px 20px 24px}
+#stage.wide{max-width:1440px}
 footer{text-align:center;padding:12px 20px 32px;color:var(--muted);font-size:13px}
 footer span{display:inline-block;border:1px solid #D0D0DA;background:#fff;border-radius:999px;padding:6px 12px}
 
@@ -128,6 +129,48 @@ footer span{display:inline-block;border:1px solid #D0D0DA;background:#fff;border
 .dhint{flex:none;margin:0;padding:4px 16px 10px;background:#fff;font-size:12px;color:#6A6D73}
 .dhint b{color:#A84A08}
 .badge.opt{background:#F2F2F6;color:#3A3D42;border:1.5px solid #E1E1E7;font-weight:700}
+.mm-search{position:relative;z-index:16;padding-top:2px}
+.ac.drop{position:absolute;left:-1.5px;right:-1.5px;top:calc(100% + 6px);margin:0;background:#fff;box-shadow:0 14px 30px -10px rgba(0,0,0,.3);z-index:20}
+.mm-msg{flex:none;margin:0;padding:0 16px 6px;background:#fff;font-size:12.5px;color:#2B2E33;min-height:0}
+.mm-msg:empty{display:none}
+.dchip .o{display:grid;place-items:center}
+.dchip[aria-pressed="true"] .o::after{content:"";width:5px;height:3px;border:solid #fff;border-width:0 0 2px 2px;transform:rotate(-45deg) translate(1px,-1px)}
+.dimmer{position:absolute;inset:0;border-radius:50px;background:rgba(236,236,242,.78);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;z-index:60;transition:opacity .5s}
+.dimmer.off{opacity:0;pointer-events:none}
+.dimmer .dc{background:#fff;border-radius:20px;padding:18px 20px;box-shadow:0 18px 40px -16px rgba(0,0,0,.35);text-align:center;max-width:250px;animation:pop .4s}
+.dimmer .dc i{display:block;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-ink);margin-bottom:4px}
+.dimmer .dc b{display:block;font-size:18px;letter-spacing:-.01em}
+.dimmer .dc span{display:block;font-size:13.5px;color:#5D6066;margin-top:4px}
+.dimmer.prob{background:rgba(30,12,10,.42);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.pcard{width:84%;max-width:300px;background:#fff;border-radius:22px;padding:18px 16px 16px;text-align:left;box-shadow:0 24px 50px -18px rgba(0,0,0,.55);animation:pin .6s cubic-bezier(.2,1.4,.4,1) both,ring 1.4s ease-out .6s 2}
+@keyframes pin{0%{opacity:0;transform:translateY(40px) scale(.85)}100%{opacity:1;transform:none}}
+@keyframes ring{0%{box-shadow:0 24px 50px -18px rgba(0,0,0,.55),0 0 0 0 rgba(229,57,53,.65)}100%{box-shadow:0 24px 50px -18px rgba(0,0,0,.55),0 0 0 22px rgba(229,57,53,0)}}
+.pcard .ey{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#B42318}
+.pcard .ey .x{width:22px;height:22px;border-radius:50%;background:#FDECEA;display:grid;place-items:center;font-size:12px;animation:shake .5s ease-in-out .7s 2}
+@keyframes shake{25%{transform:rotate(-14deg)}75%{transform:rotate(14deg)}}
+.pcard .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 10px}
+.pcard .nums div{background:#FFF4F2;border:1px solid #F6D0CB;border-radius:14px;padding:9px 8px}
+.pcard .nums b{display:block;font-size:26px;font-weight:800;letter-spacing:-.02em;color:#7A1F16;font-variant-numeric:tabular-nums}
+.pcard .nums span{display:block;font-size:11.5px;color:#7A4A44;line-height:1.2;margin-top:2px}
+.pcard p{margin:0 0 14px;font-size:13.5px;color:#2B2E33;font-weight:600}
+.nextcta{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;border:0;border-radius:14px;background:var(--orange-ink);color:#fff;font-weight:800;font-size:16px;padding:12px 14px;min-height:50px;animation:pin .5s cubic-bezier(.2,1.4,.4,1) .9s both}
+.nextcta:hover{background:#9A4408}
+.nextcta svg{width:26px;height:26px;animation:nudge 1s ease-in-out 1.4s infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(8px)}}
+@media (prefers-reduced-motion:reduce){.pcard,.nextcta,.pcard .ey .x,.nextcta svg{animation:none}}
+.phone-wrap.faded .phone{opacity:.55;transition:opacity .6s}
+.statcard{width:var(--cw);margin-top:10px;border-radius:18px;padding:14px 16px;background:#fff;animation:pop .45s}
+.statcard.bad{border:1.5px solid #F1C6C0}
+.statcard.good{border:1.5px solid #A6D9C1}
+.statcard h4{margin:0 0 10px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.statcard.bad h4{color:#9A2A1E} .statcard.good h4{color:#0B6B45}
+.statcard .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.statcard .g3 div{background:var(--bg);border-radius:12px;padding:8px 10px}
+.statcard .g3 b{display:block;font-size:22px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.statcard .g3 span{font-size:11.5px;color:#5D6066;line-height:1.2;display:block}
+.statcard .g3 em{display:inline-block;font-style:normal;font-size:11.5px;font-weight:800;color:#0B6B45;background:#E6F5EE;border-radius:6px;padding:1px 5px;margin-top:4px}
+.statcard p{margin:10px 0 0;font-size:13px;color:#2B2E33}
+#phase{transition:opacity .3s}
 .bubble{position:absolute;max-width:232px;background:#fff;border-radius:14px;padding:8px 11px 9px;box-shadow:0 10px 28px -8px rgba(10,10,30,.38),0 0 0 1px rgba(0,0,0,.05);font-size:13px;font-weight:600;line-height:1.3;color:#1E2126;animation:bub .35s cubic-bezier(.2,.8,.2,1);transition:opacity .35s,transform .35s;z-index:5}
 .bubble.out{opacity:0;transform:translateY(-6px)}
 .bubble i{display:block;font-style:normal;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
@@ -435,15 +478,45 @@ footer span{display:inline-block;border:1px solid #D0D0DA;background:#fff;border
 .metric span{font-size:12px;color:#5D6066}
 
 /* ---------- compare ---------- */
-.cmp-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 14px;margin-bottom:18px}
-.cmp-top p{margin:0;font-size:14px;color:#2B2E33;max-width:560px}
-.ctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.progress{height:4px;background:#E6E6EC;border-radius:4px;overflow:hidden;margin-top:10px;width:100%}
-.progress i{display:block;height:100%;width:0;background:var(--orange);transition:width .3s}
-.compare-phones{display:grid;grid-template-columns:1fr 1fr;gap:40px;justify-items:center}
-@media (min-width:1201px){.compare-phones .cmp-col:first-child{justify-self:end}.compare-phones .cmp-col:last-child{justify-self:start}}
-@media (max-width:1200px){.compare-phones .rail{position:static;width:auto;max-width:var(--cw);flex-direction:row;flex-wrap:wrap;margin-top:10px}.rail.pain,.rail.win{align-items:center}}
-.cmp-col{display:flex;flex-direction:column;align-items:center;--cw:372px}
+.cmp-top{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 10px;margin-bottom:12px}
+.cmp-top .ib{width:36px;height:36px;border-radius:50%;border:1px solid #D0D0DA;background:#fff;display:grid;place-items:center;flex:none;padding:0}
+.cmp-top .ib:hover{border-color:var(--ink)}
+.cmp-top .ib svg{width:15px;height:15px}
+.cmp-top .seg{padding:3px}
+.cmp-top .seg button{min-height:30px;padding:2px 10px;font-size:13px}
+.tlw{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;padding:0 6px}
+.tlw #phase{margin:0;font-size:12.5px;color:#2B2E33;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-row{display:flex;align-items:center;gap:10px}
+.tl-bar{position:relative;flex:1;display:flex;gap:2px;height:16px;align-items:center;cursor:pointer;touch-action:none;outline-offset:4px}
+.tl-bar .sg{position:relative;height:5px;background:#E1E1E8;border-radius:3px;overflow:hidden;transition:height .12s}
+.tl-bar:hover .sg,.tl-bar.drag .sg{height:8px}
+.tl-bar .sg i{position:absolute;left:0;top:0;bottom:0;width:0;background:#6E7077}
+.tl-bar .sg.a i{background:var(--orange)}
+.tl-bar .sg.first{margin-left:10px}
+.tl-bar .sg.hov{background:#C9C9D3}
+.tl-knob{position:absolute;top:50%;left:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 3px #fff,0 1px 5px rgba(0,0,0,.35);pointer-events:none}
+.tl-tip{position:absolute;bottom:22px;left:0;transform:translateX(-50%);background:#16161C;color:#fff;font-size:12px;font-weight:500;border-radius:8px;padding:6px 9px;white-space:nowrap;max-width:340px;overflow:hidden;text-overflow:ellipsis;pointer-events:none;opacity:0;transition:opacity .12s;z-index:30}
+.tl-tip b{color:#FFB37A;margin-right:6px;font-weight:700}
+.tl-bar:hover .tl-tip,.tl-bar.drag .tl-tip{opacity:1}
+.tl-time{font-size:12px;font-variant-numeric:tabular-nums;color:#5D6066;flex:none}
+.compare-phones{display:flex;gap:28px;justify-content:center;align-items:flex-start}
+.cmp-col{display:flex;gap:14px;align-items:flex-start;--cw:100%}
+.cmp-info{width:236px;flex:none;display:flex;flex-direction:column;gap:10px}
+.cmp-info .cmp-lbl{margin:2px 0 0!important;font-size:17px!important}
+.cmp-info .caption{margin:0;max-width:none;min-height:0}
+.cmp-info .cmp-met{width:100%!important;margin:0!important;padding:0!important}
+.cmp-info .statcard{width:100%;margin:0;padding:12px}
+.cmp-info .statcard .g3{gap:6px}
+.cmp-info .statcard .g3 div{padding:7px 8px}
+.cmp-info .statcard .g3 b,.cmp-info .metric b{font-size:19px}
+.rail.inl{position:static!important;width:auto!important;margin:0!important;flex-direction:column!important;align-items:stretch!important;gap:7px;max-width:none!important}
+.rail.inl li{border-radius:12px}
+@media (max-width:900px){
+  .compare-phones{flex-direction:column;align-items:center;gap:30px}
+  .cmp-col{flex-direction:column;align-items:center;width:100%}
+  .cmp-info{width:min(100%,520px);padding:0 16px}
+  .rail.inl{flex-direction:row!important;flex-wrap:wrap}
+}
 .cmp-lbl{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:18px;font-weight:800}
 .cmp-lbl .pill{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:3px 8px}
 .pill.today{background:#E3E3EA;color:#3F3F4A}
@@ -587,10 +660,10 @@ function classify(name){
 /* =========================================================
    RESTAURANTS: fictional, Bengaluru, all pure veg.
    r1 nearby complete match (its chaat sells out on ADD: edge case)
-   r5 far complete match (also has the optional brownie)
+   r5 far complete match (also has the brownie)
    r8 second complete match
    r2, r3 partial matches · r4 chaat in catalogue but unavailable now
-   r6, r7 none of the required dishes (r7 has Medu Vada only): hidden
+   r6, r7 none of the searched dishes (r7 has Medu Vada only): hidden
    ========================================================= */
 const RESTAURANTS_SRC = [
   {id:'r1', name:'Udupi Upahar Bhavan', area:'Jayanagar', rating:4.5, reviews:'3.1K+', eta:18, dist:1.2, forTwo:200, offer:'Items at ₹49', free:true, menu:[
@@ -628,7 +701,7 @@ const RESTAURANTS_SRC = [
 
 const BEFORE_QUERY = 'sambar vada and dahi papdi chaat';
 const FEATURED = ['r2','r3','r4','r8'], MORE = ['r1','r5'];
-const DEFAULT_MEAL = () => [{id:'sambar-vada',req:true},{id:'dahi-papdi-chaat',req:true},{id:'brownie',req:false}];
+const DEFAULT_MEAL = () => [];
 const TASK_MEAL = [{id:'sambar-vada',req:true},{id:'dahi-papdi-chaat',req:true}];
 
 function buildData(){
@@ -647,6 +720,7 @@ function buildData(){
    ========================================================= */
 function itemsFor(r, dishId){ const out = []; r.menu.forEach(c => c.items.forEach(it => { if (it.dish === dishId) out.push(it); })); return out; }
 function matchRestaurant(r, meal){
+  meal = meal.filter(m => m.req);   // only selected dishes take part in the match
   const rows = meal.map(m => {
     const its = itemsFor(r, m.id);
     const avail = its.filter(i => i.avail).sort((a, b) => a.p - b.p);
@@ -759,7 +833,7 @@ class Phone {
     this.timers.forEach(clearTimeout); this.timers = [];
     this.data = buildData();
     this.m = {taps:0, start:null, end:null, virt:0, scripted:false};
-    this.scrollMem = {}; this.lastKey = null; this.toast = null;
+    this.scrollMem = {}; this.lastKey = null; this.toast = null; this.fast = false;
     this.finger.classList.remove('on', 'press', 'drag');
     this.st = this.kind === 'before'
       ? {screen:'search', query:'', tab:'dishes', menuRid:null, opened:[], collapsed:{}, found:null, cart:{rid:null, lines:{}}, chips:{}}
@@ -928,11 +1002,11 @@ class Phone {
       return `<li><span class="st ${x.req ? 'no' : 'opt'}" aria-hidden="true">✕</span><span class="dn"><b>${esc(d.name)}</b><small>Not on this menu${x.req ? '' : ' · optional'}</small></span><span class="dp" style="color:#8A8C93">—</span></li>`; };
     const rows = [...m.rows.filter(x => x.req), ...m.rows.filter(x => !x.req)];
     const optRows = m.rows.filter(x => !x.req), optFound = optRows.filter(x => x.status === 'ok');
-    const cards = rows.filter(x => x.status === 'ok').map(x => this.dishCard(x.item, `<span class="matches-for ${x.req ? '' : 'optl'}">${x.req ? 'Required' : 'Optional'}</span>`)).join('');
-    return `<section class="rsec" aria-label="${esc(r.name)}, ${m.reqAvail} of ${m.reqTotal} required dishes available">
+    const cards = rows.filter(x => x.status === 'ok').map(x => this.dishCard(x.item, `<span class="matches-for">In your meal</span>`)).join('');
+    return `<section class="rsec" aria-label="${esc(r.name)}, ${m.reqAvail} of ${m.reqTotal} of your dishes available">
       <div class="rhead"><div class="g"><p class="rnm">${esc(r.name)}</p>${this.rmeta(r, true)}</div>
         <button type="button" class="icon-btn" aria-label="Open ${esc(r.name)}" data-action="a-open" data-rid="${r.id}">${IC.arrow}</button></div>
-      <div class="badge-row" style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge ${full ? 'full' : 'part'}">${full ? '✓' : '!'} ${m.reqAvail}/${m.reqTotal} required available</span>${optFound.map(x => `<span class="badge opt">+ ${esc(DISH[x.dish].name)} (optional)</span>`).join('')}</div>
+      <div class="badge-row" style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge ${full ? 'full' : 'part'}">${full ? '✓' : '!'} ${m.reqAvail}/${m.reqTotal} dishes available</span>${optFound.map(x => `<span class="badge opt">+ ${esc(DISH[x.dish].name)} (optional)</span>`).join('')}</div>
       <ul class="dstat" aria-label="Your dishes at ${esc(r.name)}">${rows.map(li).join('')}</ul>
       ${optRows.length ? `<p class="optline">Optional found: ${optFound.length ? optFound.map(x => esc(DISH[x.dish].name)).join(', ') : 'none'}</p>` : ''}
       ${cards ? `<div class="carousel">${cards}</div>` : ''}
@@ -940,34 +1014,37 @@ class Phone {
       <button type="button" class="cta" data-action="a-open" data-rid="${r.id}" data-fk="a-open-${r.id}">View matching items</button></section>`;
   }
   afterResultsBody(){
-    const st = this.st, res = matchAll(st.meal, st.sort, this.data), reqs = st.meal.filter(m => m.req);
+    const st = this.st, res = matchAll(st.meal, st.sort, this.data), sel = st.meal.filter(m => m.req);
+    if (!sel.length) return `<div class="empty" style="border-color:#E4E4EA"><h3>No dishes selected</h3><p>Tap a dish above to include it again, or add a new one.</p></div>`;
     let h = '';
-    if (!res.complete.length && st.meal.length){
-      const blocking = reqs.filter(m => !this.data.list.some(r => matchRestaurant(r, [m]).rows[0].status === 'ok'));
-      const offer = blocking.length ? blocking : reqs;
-      h += `<div class="empty" role="status"><h3>No single restaurant has all ${reqs.length} required dishes right now</h3>
-        <p>${blocking.length ? `No nearby restaurant has <b>${blocking.map(m => esc(DISH[m.id].name)).join(', ')}</b> available right now, so a complete match isn't possible.` : 'Each dish is available somewhere, but not all together at one place right now.'}</p>
-        <div class="actions">${offer.map(m => `<button type="button" class="btn-sec" data-action="a-make-opt" data-id="${m.id}" data-fk="mk-${m.id}">Make ${esc(DISH[m.id].name)} optional</button>`).join('')}
+    if (!res.complete.length){
+      const blocking = sel.filter(m => !this.data.list.some(r => matchRestaurant(r, [m]).rows[0].status === 'ok'));
+      const offer = blocking.length ? blocking : sel;
+      h += `<div class="empty" role="status"><h3>No single restaurant has all ${sel.length} dishes right now</h3>
+        <p>${blocking.length ? `No nearby restaurant has <b>${blocking.map(m => esc(DISH[m.id].name)).join(', ')}</b> available right now.` : 'Each dish is available somewhere, but not all together at one place right now.'}</p>
+        <div class="actions">${offer.map(m => `<button type="button" class="btn-sec" data-action="a-make-opt" data-id="${m.id}" data-fk="mk-${m.id}">Leave out ${esc(DISH[m.id].name)}</button>`).join('')}
         ${res.partial.length ? `<button type="button" class="btn-sec" data-action="a-see-partial" data-fk="see-partial">See partial matches (${res.partial.length})</button>` : ''}</div></div>`;
     } else {
-      h += `<div class="tier-h"><h3>Complete matches</h3><span>All required dishes<br>available now</span></div>${res.complete.map(m => this.afterCard(m)).join('')}`;
+      h += `<div class="tier-h"><h3>Complete matches</h3><span>Every dish<br>available now</span></div>${res.complete.map(m => this.afterCard(m)).join('')}`;
     }
-    if (res.partial.length) h += `<div class="tier-h" data-partial="1" tabindex="-1"><h3>Partial matches</h3><span>Missing at least one<br>required dish</span></div>${res.partial.map(m => this.afterCard(m)).join('')}`;
-    if (res.hidden.length) h += `<p class="hidden-note">${plural(res.hidden.length, 'restaurant', 'restaurants')} with none of your required dishes ${res.hidden.length > 1 ? 'are' : 'is'} not shown.</p>`;
+    if (res.partial.length) h += `<div class="tier-h" data-partial="1" tabindex="-1"><h3>Partial matches</h3><span>Missing at least<br>one dish</span></div>${res.partial.map(m => this.afterCard(m)).join('')}`;
+    if (res.hidden.length) h += `<p class="hidden-note">${plural(res.hidden.length, 'restaurant', 'restaurants')} with none of your dishes ${res.hidden.length > 1 ? 'are' : 'is'} not shown.</p>`;
     return h;
   }
   afterResults(){
-    const st = this.st;
-    const chips = st.meal.map((m, i) => `<button type="button" class="dchip" aria-pressed="${m.req}" data-action="a-flip" data-i="${i}" data-fk="flip-${m.id}" aria-label="${esc(DISH[m.id].name)}, ${m.req ? 'must-have' : 'optional'}. Tap to make ${m.req ? 'optional' : 'a must-have'}"><span class="o" aria-hidden="true"></span>${esc(DISH[m.id].name)}</button>`).join('');
+    const st = this.st, sel = st.meal.filter(m => m.req).length;
+    const chips = st.meal.map((m, i) => `<button type="button" class="dchip" aria-pressed="${m.req}" data-action="a-flip" data-i="${i}" data-fk="flip-${m.id}" aria-label="${esc(DISH[m.id].name)}, ${m.req ? 'included' : 'left out'}. Tap to ${m.req ? 'leave it out' : 'include it'}"><span class="o" aria-hidden="true"></span>${esc(DISH[m.id].name)}</button>`).join('');
     const skel = '<div class="skel" aria-hidden="true"><div class="sk" style="width:60%;height:22px"></div><div class="sk" style="width:45%"></div><div class="sk" style="width:85%"></div><div class="sk" style="width:75%"></div><div class="sk" style="height:90px"></div></div>';
+    const start = `<div class="empty" style="border-color:#E4E4EA"><h3>What do you want from one place?</h3><p>Add each dish in the search bar. Every dish you add is matched at once, so you only see restaurants that have them.</p></div>`;
     return `<div class="screen">${STATUS}
-      <div class="hdr mmh"><button type="button" class="icon-btn" aria-label="Back to meal builder" data-action="a-to" data-to="builder" data-fk="a-back-r">${IC.back}</button>
-        <div class="tt"><b>Meal Match</b><small>${plural(st.meal.length, 'dish', 'dishes')} · ${st.meal.filter(m => m.req).length} must-have</small></div>
-        <button type="button" class="edit-pill" data-action="a-to" data-to="builder" data-fk="a-edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>Edit</button></div>
-      <div class="dishbar" role="group" aria-label="Your dishes. Selected dishes are must-haves; tap to refine">${chips}<button type="button" class="dchip add" data-action="a-to" data-to="builder" aria-label="Add a dish">+ Add</button></div>
-      <p class="dhint"><b>●</b> must-have · <span aria-hidden="true">○</span> optional · tap a dish to refine</p>
-      <div class="filters"><div class="frow" role="group" aria-label="Sort results">${Object.entries(SORTS).map(([k, v]) => `<button type="button" class="fchip" aria-pressed="${st.sort === k}" data-action="a-sort" data-sort="${k}" data-fk="sort-${k}">${v.label}</button>`).join('')}<span class="fchip on">Veg Dishes ${IC.x}</span></div></div>
-      <div class="scroll" id="scroll" aria-busy="${st.loading}" style="background:var(--bg)"><div class="feed" style="padding-top:2px">${st.loading ? '<div class="tier-h"><h3>Checking menus…</h3></div>' + skel + skel + skel : this.afterResultsBody()}</div></div>
+      <div class="hdr mmh"><button type="button" class="icon-btn" aria-label="Back to search" data-action="a-to" data-to="search" data-fk="a-back-r">${IC.back}</button>
+        <div class="tt"><b>Meal Match</b><small>${st.meal.length ? `${sel} of ${plural(st.meal.length, 'dish', 'dishes')} selected` : 'Find one restaurant with all your dishes'}</small></div></div>
+      <div class="srow mm-search"><div class="sbox">${IC.search.replace('<svg', '<svg style="width:20px;height:20px;color:#6A6D73;margin-right:8px;flex:none"')}<input id="dish-${this.uid()}" data-dish="1" type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="${!!this.acItems().length}" aria-label="Add a dish" placeholder="Add a dish, e.g. sambar vada" value="${esc(st.acQuery)}">
+        <ul class="ac drop" data-ac="1" role="listbox" aria-label="Dish suggestions">${this.acList()}</ul></div></div>
+      <p class="mm-msg" data-acmsg="1" aria-live="polite">${esc(st.acMsg)}</p>
+      ${st.meal.length ? `<div class="dishbar" role="group" aria-label="Dishes in your search. Tap to include or leave out">${chips}</div><p class="dhint">Tap a dish to include it or leave it out</p>
+      <div class="filters"><div class="frow" role="group" aria-label="Sort results">${Object.entries(SORTS).map(([k, v]) => `<button type="button" class="fchip" aria-pressed="${st.sort === k}" data-action="a-sort" data-sort="${k}" data-fk="sort-${k}">${v.label}</button>`).join('')}<span class="fchip on">Veg Dishes ${IC.x}</span></div></div>` : ''}
+      <div class="scroll" id="scroll" aria-busy="${st.loading}" style="background:var(--bg)"><div class="feed" style="padding-top:2px">${!st.meal.length ? start : st.loading ? '<div class="tier-h"><h3>Checking menus…</h3></div>' + skel + skel + skel : this.afterResultsBody()}</div></div>
       ${this.afterCartBar()}${NAVBAR}</div>`;
   }
   afterDetail(){
@@ -978,10 +1055,10 @@ class Phone {
       if (!its.length){ matching += `<div class="miss"><span class="st ${x.req ? 'no' : 'opt'}" aria-hidden="true">✕</span><span><b>${esc(d.name)}</b> isn't on this menu${x.req ? '' : ' (optional)'}</span></div>`; return; }
       its.forEach(it => {
         const vars = it.variants ? `<div class="variants" role="group" aria-label="${esc(it.n)} size">${it.variants.map((v, vi) => `<button type="button" aria-pressed="${(st.variant[it.id] || 0) === vi}" data-action="a-variant" data-item="${it.id}" data-vi="${vi}" data-fk="var-${it.id}-${vi}">${esc(v[0])} · ${rupee(v[1])}</button>`).join('')}</div>` : '';
-        matching += this.menuItem(it, `<div><span class="matches-for ${x.req ? '' : 'optl'}">Matches: ${esc(d.name)} · ${x.req ? 'Required' : 'Optional'}</span></div>${vars}`);
+        matching += this.menuItem(it, `<div><span class="matches-for">Matches: ${esc(d.name)}</span></div>${vars}`);
       });
     });
-    const badge = `<div style="margin-top:12px"><span class="badge ${m.tier === 'complete' ? 'full' : 'part'}">${m.tier === 'complete' ? '✓' : '!'} ${m.reqAvail}/${m.reqTotal} required available</span></div>`;
+    const badge = `<div style="margin-top:12px"><span class="badge ${m.tier === 'complete' ? 'full' : 'part'}">${m.tier === 'complete' ? '✓' : '!'} ${m.reqAvail}/${m.reqTotal} dishes available</span></div>`;
     return `<div class="screen" style="background:var(--bg)">${this.restoTop('a-back-detail', 'Back to Meal Match results')}
       <div class="scroll" id="scroll"><div class="menu-wrap" style="padding-top:8px">${this.restoInfo(r, badge)}
         <div style="margin-top:14px"><h3 class="sec-h">Matching your meal</h3><p class="sec-sub">Your dishes first. Availability is rechecked when you add.</p><div style="background:#fff" data-matching="1">${matching}</div></div>
@@ -1011,16 +1088,16 @@ class Phone {
     return `<div class="screen" style="background:var(--bg)"><div style="background:#fff">${STATUS}</div><div class="hdr"><button type="button" class="icon-btn" aria-label="Back" data-action="a-cart-back" data-fk="a-back-c">${IC.back}</button><div class="ttl">Cart</div></div>
       <div class="scroll" id="scroll">${n ? `<div class="cart-card"><p class="rnm" style="font-size:20px">${esc(r.name)}</p><div class="rmeta" style="font-size:15px">${r.eta}-${r.eta + 5} mins · ${r.dist} km</div>${lines}
         <div class="subtot" style="margin:12px 0 0"><span>Item total<small>Fees &amp; offers not modelled in this demo</small></span><b>${rupee(this.cartTotal())}</b></div></div>
-        <div class="cart-card"><h3 style="margin:0;font-size:17px">Your meal check</h3><ul class="checks">${st.meal.map(m => `<li><span class="st ${inCart.has(m.id) ? 'ok' : (m.req ? 'no' : 'opt')}" aria-hidden="true">${inCart.has(m.id) ? '✓' : '✕'}</span>${esc(DISH[m.id].name)} <span style="color:#5D6066;font-size:13.5px">· ${m.req ? 'required' : 'optional'}${inCart.has(m.id) ? '' : ', not in cart'}</span></li>`).join('')}</ul>
-        ${missing.length ? `<div class="warn">Your cart doesn't include: ${missing.map(m => esc(DISH[m.id].name)).join(', ')} (required).</div>` : ''}${check}
+        <div class="cart-card"><h3 style="margin:0;font-size:17px">Your meal check</h3><ul class="checks">${st.meal.filter(m => m.req).map(m => `<li><span class="st ${inCart.has(m.id) ? 'ok' : 'no'}" aria-hidden="true">${inCart.has(m.id) ? '✓' : '✕'}</span>${esc(DISH[m.id].name)}${inCart.has(m.id) ? '' : ' <span style="color:#5D6066;font-size:13.5px">· not in cart yet</span>'}</li>`).join('')}</ul>
+        ${missing.length ? `<div class="warn">Your cart doesn't include: ${missing.map(m => esc(DISH[m.id].name)).join(', ')}.</div>` : ''}${check}
         ${st.checkout === 'done' ? '' : `<button type="button" class="btn-primary" data-action="a-checkout" data-fk="a-checkout" ${st.checkout === 'checking' ? 'disabled' : ''}>Proceed to checkout</button>`}</div>`
         : `<div class="cart-card"><p>Your cart is empty.</p><button type="button" class="btn-sec" data-action="a-to" data-to="results">Back to results</button></div>`}</div>${NAVBAR}</div>`;
   }
   modal(){
     const md = this.st.modal; if (!md) return '';
     return `<div class="overlay"><div class="sheet" role="dialog" aria-modal="true" aria-label="Item just went out of stock">
-      <h3>Just went out of stock</h3><p><b>${esc(md.itemName)}</b> at ${esc(md.rName)} sold out as you added it. We rechecked: this restaurant now has <b>${md.reqAvail}/${md.reqTotal}</b> required dishes.</p>
-      ${md.alt ? `<div class="alt"><b>Next complete match: ${esc(md.alt.name)}</b><br>${md.alt.reqAvail}/${md.alt.reqTotal} required available · ${md.alt.eta}-${md.alt.eta + 5} mins · ${md.alt.dist} km · subtotal ${rupee(md.alt.subtotal)}</div>
+      <h3>Just went out of stock</h3><p><b>${esc(md.itemName)}</b> at ${esc(md.rName)} sold out as you added it. We rechecked: this restaurant now has <b>${md.reqAvail}/${md.reqTotal}</b> of your dishes.</p>
+      ${md.alt ? `<div class="alt"><b>Next complete match: ${esc(md.alt.name)}</b><br>${md.alt.reqAvail}/${md.alt.reqTotal} dishes available · ${md.alt.eta}-${md.alt.eta + 5} mins · ${md.alt.dist} km · subtotal ${rupee(md.alt.subtotal)}</div>
         <button type="button" class="btn-primary" style="margin-top:0" data-action="md-switch" data-rid="${md.alt.id}" data-fk="md-switch">Switch to ${esc(md.alt.name)}</button>` : '<div class="warn" style="margin-top:0">No other complete match right now.</div>'}
       <button type="button" class="btn-sec" style="width:100%;margin-top:10px" data-action="md-close" data-fk="md-close">Stay here (partial)</button>
       ${md.alt ? '<p style="margin:8px 0 0;font-size:12.5px;color:#5D6066">Switching clears your current cart.</p>' : ''}</div></div>`;
@@ -1045,12 +1122,17 @@ class Phone {
     else if (this.st.focusPartial && !this.st.loading){ this.st.focusPartial = false; const ph = this.sh.querySelector('[data-partial]'); if (ph && sc2){ sc2.scrollTop = ph.offsetTop - 8; ph.focus({preventScroll:true}); } }
     else if (inputSel){ const el = this.sh.querySelector('#' + CSS.escape(inputSel)); if (el){ el.focus({preventScroll:true}); const v = el.value; try { el.setSelectionRange(v.length, v.length); } catch(e){} } }
     else if (fk){ const el = this.sh.querySelector(`[data-fk="${CSS.escape(fk)}"]`); if (el) el.focus({preventScroll:true}); }
+    if (this.kind === 'after' && this.st.screen === 'results' && !this.st.loading && this.m.start && !this.m.end){
+      const sel = this.st.meal.filter(m => m.req);
+      if (sel.length >= 2 && matchAll(this.st.meal, this.st.sort, this.data).complete.length){ this.endClock(); announce('First match found'); }
+    }
     if (this.opts.onUpdate) this.opts.onUpdate(this);
   }
   showToast(msg){ this.toast = msg; announce(msg); this.render(); clearTimeout(this.tt); this.tt = setTimeout(() => { this.toast = null; this.render(); }, 2400); this.timers.push(this.tt); }
   recompute(){
     if (this.st.screen !== 'results') return this.render();
     this.scrollMem[this.screenKey()] = 0; const sc = this.sh.querySelector('#scroll'); if (sc) sc.scrollTop = 0;
+    if (this.fast){ this.st.loading = false; this.render(); return; }
     this.st.loading = true; this.render();
     clearTimeout(this.lt); this.lt = setTimeout(() => { this.st.loading = false; this.render(); }, 550); this.timers.push(this.lt);
   }
@@ -1086,8 +1168,8 @@ class Phone {
     const st = this.st;
     if (!id){ st.acMsg = st.acQuery ? `No dish called “${st.acQuery}” in this demo’s list.` : ''; return this.renderAc(); }
     if (st.meal.some(m => m.id === id)){ st.acMsg = `${DISH[id].name} is already in your meal.`; return this.renderAc(); }
-    st.meal.push({id, req:true}); st.acQuery = ''; st.acHl = 0; st.acMsg = `Added ${DISH[id].name} as Required.`;
-    this.render();
+    st.meal.push({id, req:true}); st.acQuery = ''; st.acHl = 0; st.acMsg = '';
+    announce(`Added ${DISH[id].name}`); this.recompute();
     const inp = this.sh.querySelector('[data-dish]'); if (inp && !this.player) inp.focus();
   }
   act(a, d){
@@ -1109,11 +1191,11 @@ class Phone {
       },
       'b-back': () => { st.screen = 'results'; this.render(); },
       'b-cat': () => { st.collapsed[d.key] = !st.collapsed[d.key]; this.render(); },
-      'a-build': () => { this.startClock(); st.screen = 'builder'; this.render(); },
+      'a-build': () => { this.startClock(); st.screen = 'results'; st.loading = false; this.render(); },
       'a-to': () => { st.screen = d.to; if (d.to === 'results') st.loading = false; this.render(); },
       'a-results': () => { st.screen = 'results'; this.scrollMem.results = 0; this.recompute(); },
       'a-req': () => { st.meal[+d.i].req = d.v === '1'; this.render(); },
-      'a-flip': () => { const m = st.meal[+d.i]; m.req = !m.req; announce(`${DISH[m.id].name} is now ${m.req ? 'required' : 'optional'}`); this.recompute(); },
+      'a-flip': () => { const m = st.meal[+d.i]; m.req = !m.req; announce(`${DISH[m.id].name} ${m.req ? 'included' : 'left out'}`); this.recompute(); },
       'a-remove': () => { const m = st.meal.splice(+d.i, 1)[0]; st.acMsg = `Removed ${DISH[m.id].name}.`; this.render(); },
       'add-dish': () => this.addDish(d.id),
       'a-sort': () => { st.sort = d.sort; this.recompute(); },
@@ -1122,13 +1204,12 @@ class Phone {
       'a-open': () => {
         st.detailRid = d.rid; st.screen = 'detail'; this.scrollMem['detail' + d.rid] = 0;
         if (!st.opened.includes(d.rid)) st.opened.push(d.rid);
-        if (matchRestaurant(this.data.byId[d.rid], st.meal).tier === 'complete') this.endClock();
         this.render();
       },
       'a-back-detail': () => { st.screen = 'results'; st.loading = false; this.render(); },
       'a-variant': () => { st.variant[d.item] = +d.vi; this.render(); },
       'a-cart-back': () => { if (st.cart.rid){ st.screen = 'detail'; st.detailRid = st.cart.rid; } else st.screen = 'results'; if (st.checkout === 'done') st.checkout = null; this.render(); },
-      'a-checkout': () => { st.checkout = 'checking'; this.render(); this.later(() => { st.checkout = 'done'; this.render(); }, 1000); },
+      'a-checkout': () => { if (this.fast){ st.checkout = 'done'; return this.render(); } st.checkout = 'checking'; this.render(); this.later(() => { st.checkout = 'done'; this.render(); }, 1000); },
       'md-switch': () => { st.modal = null; st.cart = {rid:null, lines:{}}; this.act('a-open', d); },
       'md-close': () => { st.modal = null; this.render(); }
     };
@@ -1182,14 +1263,19 @@ class Player {
   }
   get speed(){ return APP.speed; }
   async run(){
-    this.ph.player = this; this.ph.m.scripted = true;
+    this.ph.player = this; this.ph.m.scripted = true; this.started = true; this.pt = this.pt || 0; this.durs = [];
     try {
       for (this.step = 0; this.step < this.script.length; this.step++){
         if (this.cancelled) return;
+        this.ff = this.step < (this.ffUntil || 0); this.ph.fast = this.ff;
+        if (this.ff) this.hideFinger();
+        this.stepPt = this.pt;
         const [cap, fn] = this.script[this.step];
         this.say(cap);
         await fn(this);
+        this.durs[this.step] = this.pt - this.stepPt;
       }
+      this.ff = false; this.ph.fast = false;
       if (this.cancelled) return;
       this.done = true; this.hideFinger();
       if (this.ph.player === this) this.ph.player = null;
@@ -1202,6 +1288,7 @@ class Player {
   }
   say(text){ if (this.hooks.onCaption) this.hooks.onCaption(text, this.step + 1, this.script.length, this); }
   mark(text){ if (this.hooks.onMark) this.hooks.onMark(text); }
+  event(name){ if (this.hooks.onEvent) this.hooks.onEvent(name, this); }
   note(type, text){ if (this.hooks.onNote) this.hooks.onNote(type, text); if (this.ph.opts.inTab){ const f = this.fpos || {x:180, y:300}; this.ph.bubble(type, text, f.x, f.y); } }
   async highlight(sel, ms){
     const el = await this.find(sel); await this.ensureVisible(el);
@@ -1218,20 +1305,22 @@ class Player {
     if (this.ph.player === this) this.ph.player = null;
     if (this.hooks.onCancel) this.hooks.onCancel(this, byUser);
   }
-  async gate(){ while (this.paused && !this.cancelled) await new Promise(r => this._res = r); if (this.cancelled) throw new Error('cancelled'); }
+  async gate(){ while (this.paused && !this.cancelled && !this.ff) await new Promise(r => this._res = r); if (this.cancelled) throw new Error('cancelled'); }
   async wait(ms){
+    if (this.ff){ this.pt += ms; const m = this.ph.m; if (m.start && !m.end) m.virt += ms; await sleep(0); if (this.cancelled) throw new Error('cancelled'); return; }
     let left = ms;
     while (left > 0){
       await this.gate();
       const chunk = Math.min(left, 60);
       await sleep(chunk / this.speed);
-      left -= chunk;
+      left -= chunk; this.pt += chunk;
       const m = this.ph.m; if (m.start && !m.end) m.virt += chunk;
     }
     await this.gate();
   }
   hideFinger(){ this.ph.finger.classList.remove('on', 'press', 'drag'); }
   moveFinger(x, y, ms = 450){
+    if (this.ff){ this.fpos = {x, y}; return; }
     const f = this.ph.finger;
     f.style.transitionDuration = reduceMotion() ? '0ms, 0ms' : `${Math.round(ms / this.speed)}ms, 250ms`;
     f.classList.add('on'); f.style.transform = `translate(${x}px, ${y}px)`; this.fpos = {x, y};
@@ -1248,6 +1337,7 @@ class Player {
   }
   async animScroll(box, prop, to, ms){
     const from = box[prop], dur = ms / this.speed;
+    if (this.ff){ box[prop] = to; this.pt += ms; const m = this.ph.m; if (m.start && !m.end) m.virt += ms; return; }
     if (reduceMotion() || Math.abs(to - from) < 2){ box[prop] = to; return; }
     let t0 = null;
     await new Promise(res => { const tick = now => {
@@ -1257,21 +1347,21 @@ class Player {
       const k = Math.min(1, (now - t0) / dur), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
       box[prop] = from + (to - from) * e; if (k < 1) requestAnimationFrame(tick); else res(); };
       requestAnimationFrame(tick); });
-    const m = this.ph.m; if (m.start && !m.end) m.virt += ms;
+    this.pt += ms; const m = this.ph.m; if (m.start && !m.end) m.virt += ms;
   }
   async ensureVisible(el){
     const box = el.closest('.scroll'), car = el.closest('.carousel, .hero-row, .frow');
     if (box){
-      const br = box.getBoundingClientRect(), r = el.getBoundingClientRect();
+      const br = box.getBoundingClientRect(), r = el.getBoundingClientRect(), k = (br.height / box.clientHeight) || 1;
       if (r.top < br.top + 10 || r.bottom > br.bottom - 10){
-        const target = Math.max(0, Math.min(box.scrollHeight - box.clientHeight, box.scrollTop + (r.top - br.top) - br.height * 0.38));
+        const target = Math.max(0, Math.min(box.scrollHeight - box.clientHeight, box.scrollTop + ((r.top - br.top) - br.height * 0.38) / k));
         await this.swipe(box, target - box.scrollTop);
       }
     }
     if (car){
-      const cr = car.getBoundingClientRect(), r = el.getBoundingClientRect();
+      const cr = car.getBoundingClientRect(), r = el.getBoundingClientRect(), kx = (cr.width / car.clientWidth) || 1;
       if (r.left < cr.left + 4 || r.right > cr.right - 4){
-        const dx = r.left - cr.left - 20, p = this.rel(car), pw = this.ph.root.clientWidth;
+        const dx = (r.left - cr.left - 20) / kx, p = this.rel(car), pw = this.ph.root.clientWidth;
         this.moveFinger(pw * 0.78, p.y, 300); await this.wait(320);
         this.ph.finger.classList.add('drag'); this.moveFinger(pw * 0.25, p.y, 500);
         await this.animScroll(car, 'scrollLeft', car.scrollLeft + dx, 500);
@@ -1341,28 +1431,24 @@ const SCRIPT_BEFORE = [
 ];
 const SCRIPT_AFTER_TASK = [
   ['Spots the new “Build your meal” entry under the search bar', async p => { await p.wait(500); await p.highlight('[data-fk="a-build"]', 1500); p.mark('One tap: Build your meal'); await p.tap('[data-fk="a-build"]'); await p.wait(400); }],
-  ['Adds sambar vada from autocomplete', async p => { await p.tap('[data-dish]'); await p.type('[data-dish]', 'samb'); await p.wait(300); await p.tap('[data-action="add-dish"][data-id="sambar-vada"]'); }],
-  ['Adds dahi papdi chaat. Both are Required by default.', async p => { await p.tap('[data-dish]'); await p.type('[data-dish]', 'dahi p'); await p.wait(300); await p.tap('[data-action="add-dish"][data-id="dahi-papdi-chaat"]'); p.mark('Whole meal in one list'); await p.wait(600); }],
-  ['Shows restaurants: complete matches first', async p => { await p.tap('[data-fk="a-results"]'); await p.wait(1100); p.mark('“2/2 available” on the card'); p.note('pro', 'Complete matches first'); }],
-  ['Each card shows which dishes it has, with prices and a subtotal', async p => { await p.wait(1300); await p.scroll(260); await p.wait(800); await p.scroll(-260); }],
-  ['Changes the meal: adds a brownie…', async p => { await p.tap('[data-fk="a-edit"]'); await p.wait(400); await p.tap('[data-dish]'); await p.type('[data-dish]', 'brow'); await p.wait(300); await p.tap('[data-action="add-dish"][data-id="brownie"]'); await p.wait(500); }],
-  ['…and marks it Optional, so it never rules a restaurant out', async p => { await p.tap('[data-fk="opt-brownie"]'); p.mark('Edit anytime: add · optional'); await p.wait(900); }],
-  ['Back on results, every dish sits in a row under the header', async p => { await p.tap('[data-fk="a-results"]'); await p.wait(1300); }],
-  ['Taps Brownie to make it a must-have: results refine to the one place that has all three', async p => { await p.tap('[data-fk="flip-brownie"]'); p.mark('Tap a dish to refine'); await p.wait(2200); }],
-  ['Taps it again: back to optional, all complete matches return', async p => { await p.tap('[data-fk="flip-brownie"]'); await p.wait(1600); }],
-  ['Opens the top complete match: matching items come first', async p => { await p.tap('[data-fk="a-open-r1"]'); await p.wait(900); }],
-  ['Adds both dishes right there', async p => { await p.tap('[data-matching] [data-fk="inc-r1-0-0"]'); await p.tap('[data-matching] [data-fk="inc-r1-2-0"]'); p.mark('ADD without menu hunting'); await p.wait(500); }],
-  ['Checkout rechecks availability before payment', async p => { await p.tap('[data-fk="a-cart"]'); await p.wait(500); await p.tap('[data-fk="a-checkout"]'); await p.wait(1300); p.mark('Availability rechecked'); await p.wait(600); }]
+  ['Adds sambar vada in the search bar', async p => { await p.tap('[data-dish]'); await p.type('[data-dish]', 'samb'); await p.wait(300); await p.tap('[data-action="add-dish"][data-id="sambar-vada"]'); await p.wait(700); }],
+  ['Adds dahi papdi chaat: both dishes now sit under the search bar, and results update instantly', async p => { await p.tap('[data-dish]'); await p.type('[data-dish]', 'dahi p'); await p.wait(300); await p.tap('[data-action="add-dish"][data-id="dahi-papdi-chaat"]'); p.mark('Whole meal in one search'); await p.wait(1000); }],
+  ['First match, right on the results: “2/2 dishes available”. No menus opened.', async p => { p.mark('Match shown on the card'); await p.wait(1800); p.event('solved'); await p.wait(3400); }],
+  ['Here’s more: adds a brownie to the same search', async p => { await p.tap('[data-dish]'); await p.type('[data-dish]', 'brow'); await p.wait(300); await p.tap('[data-action="add-dish"][data-id="brownie"]'); p.mark('Add a dish anytime'); await p.wait(1200); }],
+  ['Results refine to the one place that has all three', async p => { await p.wait(1200); await p.scroll(240); await p.wait(700); await p.scroll(-240); }],
+  ['Taps Brownie to leave it out: every match for the first two dishes returns', async p => { await p.tap('[data-fk="flip-brownie"]'); p.mark('Tap to leave a dish out'); await p.wait(1900); }],
+  ['Taps it again to bring it back. Refine anytime, without starting over.', async p => { await p.tap('[data-fk="flip-brownie"]'); p.mark('Refine anytime'); await p.wait(2000); }]
 ];
 const SCRIPT_AFTER_TOUR = [
   ['Spots “Build your meal”: a second path next to normal search', async p => { await p.wait(500); await p.highlight('[data-fk="a-build"]', 1500); p.mark('One tap: Build your meal'); p.note('pro', 'A second path beside normal search'); await p.tap('[data-fk="a-build"]'); await p.wait(700); }],
-  ['The meal list: each dish is Required or Optional (Brownie is optional here)', async p => { await p.scrollToEl('[data-fk="opt-brownie"]'); const el = await p.find('[data-fk="opt-brownie"]'); const q = p.rel(el); p.moveFinger(q.x, q.y + 30, 500); await p.wait(500); p.note('hyp', 'Optional keeps results wide'); await p.wait(1800); }],
+  ['Adds sambar vada in the search bar', async p => { await p.tap('[data-dish]'); await p.type('[data-dish]', 'samb'); await p.wait(300); await p.tap('[data-action="add-dish"][data-id="sambar-vada"]'); p.note('pro', 'Add dishes, not keywords'); await p.wait(900); }],
+  ['Adds dahi papdi chaat: complete matches appear instantly', async p => { await p.tap('[data-dish]'); await p.type('[data-dish]', 'dahi p'); await p.wait(300); await p.tap('[data-action="add-dish"][data-id="dahi-papdi-chaat"]'); await p.wait(1100); p.mark('“2/2 available” on the card'); p.note('pro', 'Complete matches first'); await p.wait(900); }],
   ['Tries to add sambar vada again: duplicates are blocked', async p => { await p.tap('[data-dish]'); await p.type('[data-dish]', 'sambar'); await p.wait(500); await p.tap('[data-action="add-dish"][data-id="sambar-vada"]'); p.mark('Duplicates blocked'); await p.wait(1300); await p.clear('[data-dish]'); }],
-  ['Shows restaurants', async p => { await p.tap('[data-fk="a-results"]'); await p.wait(1100); p.mark('“2/2 available” on the card'); p.note('pro', 'Complete matches first'); }],
-  ['Complete matches first; partial matches below, clearly labelled', async p => { await p.wait(1000); await p.scroll(700); await p.wait(700); await p.scrollToEl('[data-partial]'); p.mark('Partial matches labelled'); await p.wait(1500); await p.scroll(-6000); await p.wait(300); }],
-  ['Sorts by Nearest', async p => { await p.tap('[data-fk="sort-nearest"]'); await p.wait(1400); }],
-  ['Taps Brownie in the dish row: now a must-have, results refine instantly', async p => { await p.tap('[data-fk="flip-brownie"]'); p.mark('Tap a dish to refine'); p.note('pro', 'Refine without leaving results'); await p.wait(2300); }],
-  ['Taps it again to make it optional', async p => { await p.tap('[data-fk="flip-brownie"]'); await p.wait(1600); }],
+  ['Partial matches sit below, clearly labelled', async p => { await p.wait(600); await p.scroll(700); await p.wait(500); await p.scrollToEl('[data-partial]'); p.mark('Partial matches labelled'); await p.wait(1500); await p.scroll(-6000); await p.wait(300); }],
+  ['Adds a brownie: results refine to the one place with all three', async p => { await p.tap('[data-dish]'); await p.type('[data-dish]', 'brow'); await p.wait(300); await p.tap('[data-action="add-dish"][data-id="brownie"]'); p.mark('Add a dish anytime'); await p.wait(1800); }],
+  ['Taps Brownie to leave it out: all matches for the first two return', async p => { await p.tap('[data-fk="flip-brownie"]'); p.mark('Tap to include or leave out'); p.note('pro', 'Refine without leaving results'); await p.wait(1700); }],
+  ['Taps it again to bring it back…', async p => { await p.tap('[data-fk="flip-brownie"]'); await p.wait(1500); }],
+  ['…then leaves it out for now and sorts by Nearest', async p => { await p.tap('[data-fk="flip-brownie"]'); await p.wait(900); await p.tap('[data-fk="sort-nearest"]'); await p.wait(1300); }],
   ['Opens Udupi Upahar Bhavan: matching items first, full menu below', async p => { await p.tap('[data-fk="a-open-r1"]'); p.note('pro', 'Your dishes first, full menu below'); await p.wait(1400); }],
   ['Picks the 2-piece sambar vadai and adds it', async p => { await p.tap('[data-matching] [data-fk="var-r1-0-0-0"]'); await p.tap('[data-matching] [data-fk="inc-r1-0-0"]'); p.mark('ADD without menu hunting'); p.note('obs', 'Item-level ADD kept from today'); await p.wait(900); }],
   ['Adds the chaat… which just sold out. Meal Match rechecks and offers the next complete match.', async p => { await p.tap('[data-matching] [data-fk="inc-r1-2-0"]'); await p.wait(700); p.mark('Sold-out caught, next match offered'); p.note('pro', 'Recheck on ADD, offer next match'); await p.wait(2100); }],
@@ -1380,8 +1466,7 @@ const SHORT = {
   'before:menu': ['obs','Coverage hidden until you open a menu'],
   'before:found': ['pro','Show “has both” on the results'],
   'after:search': ['pro','A second path beside normal search'],
-  'after:builder': ['pro','Each dish: Required or Optional'],
-  'after:results': ['pro','Complete matches first'],
+  'after:results': ['pro','Every dish you add is matched at once'],
   'after:empty': ['pro','Say what’s blocking, offer a fix'],
   'after:detail': ['obs','Item-level ADD kept from today'],
   'after:cart': ['pro','Recheck availability at checkout']
@@ -1406,13 +1491,14 @@ function setCaption(k, text, n, total, state){
   el.innerHTML = `<span class="stepn">${state === 'done' ? 'DONE' : state === 'idle' ? 'NOTE' : `${n}/${total}`}</span><span>${esc(text)}</span>`;
 }
 function metricHTML(ph, label){
-  return `<div class="mrow"><div class="metric"><b>${ph.pages()}</b><span>${label}</span></div><div class="metric"><b data-m="taps">${ph.m.taps}</b><span>taps</span></div><div class="metric"><b data-m="time">${fmtTime(ph.elapsed())}</b><span>${ph.m.end ? 'to find a full match' : 'time'}</span></div></div>`;
+  return `<div class="mrow"><div class="metric"><b>${ph.pages()}</b><span>${label}</span></div><div class="metric"><b data-m="taps">${ph.m.taps}</b><span>taps</span></div><div class="metric"><b data-m="time">${fmtTime(ph.elapsed())}</b><span>${ph.m.end ? 'to first match' : 'time'}</span></div></div>`;
 }
 const snapshot = ph => ({pages:ph.pages(), taps:ph.m.taps, time:ph.elapsed(), ended:!!ph.m.end});
 
 function mount(){
   stopAll();
   document.querySelectorAll('.head-controls [data-app="tab"]').forEach(b => b.setAttribute('aria-pressed', b.dataset.tab === APP.tab));
+  stage.classList.toggle('wide', APP.tab === 'compare');
   if (APP.tab === 'compare') mountCompare(); else mountTab(APP.tab);
 }
 
@@ -1450,7 +1536,7 @@ function addRail(id, t, pain){ const r = document.getElementById('rail-' + id); 
 function panelKey(ph){
   const st = ph.st;
   if (ph.kind === 'before') return st.screen === 'menu' && st.found === st.menuRid ? 'before:found' : 'before:' + st.screen;
-  if (st.screen === 'results' && !st.loading && st.meal.length && !matchAll(st.meal, st.sort, ph.data).complete.length) return 'after:empty';
+  if (st.screen === 'results' && !st.loading && st.meal.some(m => m.req) && !matchAll(st.meal, st.sort, ph.data).complete.length) return 'after:empty';
   return 'after:' + st.screen;
 }
 function logNote(kind, type, text){ const L = APP_ILOG[kind]; if (!L.some(n => n[1] === text)) L.push([type, text]); updatePanel(kind); }
@@ -1476,86 +1562,233 @@ function updatePanel(kind){
       <div class="pctl" style="margin:14px 0 0">${kind === 'before' ? '<button type="button" class="btn-sec" data-app="tab" data-tab="after">Go to After →</button>' : '<button type="button" class="btn-sec" data-app="tab" data-tab="compare">Back to Compare →</button>'}</div>`;
   }
   const mc = panel.querySelector('[data-metrics]');
-  if (mc) mc.innerHTML = metricHTML(ph, kind === 'before' ? 'menus opened' : 'restaurant pages');
+  if (mc) mc.innerHTML = metricHTML(ph, 'menus opened');
 }
 
-/* ----- Compare ----- */
+/* ----- Compare: Before plays first, then After ----- */
+const PHASE = {
+  1: '<b>1 · Swiggy today.</b> Task: sambar vada + dahi papdi chaat from one restaurant.',
+  gap: '<b>The problem, in numbers.</b> Next: the same task with Meal Match.',
+  2: '<b>2 · Same task with Meal Match.</b> Add both dishes, see who has them.',
+  3: '<b>3 · Here’s more you can do.</b> Add, leave out or bring back any dish; results refine instantly.',
+  end: '<b>Done.</b> Replay, or try either journey yourself in the Before / After tabs.'
+};
+function setPhase(k){ const el = document.getElementById('phase'); if (el) el.innerHTML = PHASE[k]; }
+function setDim(k, on, eyebrow, title, sub){
+  const d = document.getElementById('dim-' + k); if (!d) return;
+  if (on){ d.innerHTML = `<div class="dc"><i>${esc(eyebrow)}</i><b>${esc(title)}</b>${sub ? `<span>${esc(sub)}</span>` : ''}</div>`; d.classList.remove('off'); }
+  else d.classList.add('off');
+}
 function mountCompare(){
   const rows = [
-    ['How the user states what they want', 'One free-text search string, e.g. “sambar vada and dahi papdi chaat”.', 'A meal list of dishes, each marked Required or Optional.'],
-    ['Shows which requested dishes each restaurant has', 'No. Each restaurant section shows the dish card that matched; there is no summary of what’s present or missing.', 'Yes. ✓ / ✕ per requested dish and a “2/2 required available” badge on every card.'],
+    ['How the user states what they want', 'One free-text search string, e.g. “sambar vada and dahi papdi chaat”.', 'Each dish is added in the search bar and shows as a chip under it.'],
+    ['Shows which requested dishes each restaurant has', 'No. Each restaurant section shows the dish card that matched; there is no summary of what’s present or missing.', 'Yes. ✓ / ✕ per dish and a “2/2 dishes available” badge on every card.'],
     ['Live availability per dish', 'Not shown on the search result cards in the screenshots.', 'Per dish: available, not on menu, or “Unavailable right now”. Rechecked on ADD and at checkout.'],
-    ['Required vs optional dishes', 'Not available in the screens observed.', 'Each dish toggles Required / Optional; optional dishes add to ranking but never exclude a restaurant.'],
-    ['Ranking', 'Restaurant sections per matched dish, alongside ad and “Featured” slots. No signal for full-combination coverage.', 'Complete matches first, then partial. Within a tier: best match, ETA, distance or price.'],
-    ['Steps to find a restaurant with the full combination', 'Open menus one by one and check each dish.', 'Read the badges on the results; open the complete match.'],
+    ['Refine the combination', 'Not available in the screens observed.', 'Tap any dish chip to leave it out or bring it back; results refine in place.'],
+    ['Ranking', 'Restaurant sections per matched dish, alongside ad and “Featured” slots. No signal for full-combination coverage.', 'Complete matches first, then partial. Sort by best match, ETA, distance or price.'],
+    ['Steps to find a restaurant with the full combination', 'Open menus one by one and check each dish.', 'Add the dishes; the match is on the results.'],
     ['Item-level ADD without opening full menu', 'Yes: ADD on dish cards. A strength worth keeping.', 'Yes, kept: ADD on the matching dish cards and items.']
   ];
-  stage.innerHTML = `<div class="cmp-top"><div style="flex:1;min-width:240px"><p><b>Same task on both phones:</b> sambar vada + dahi papdi chaat from one restaurant. Watch a user do it in Swiggy today vs with Meal Match (scripted walkthrough, demo data).</p><div class="progress" aria-hidden="true"><i id="prog"></i></div></div>
-      <div class="ctl"><button type="button" class="btn-ghost" data-app="cpause" id="cpause">${IC.pause} Pause</button><button type="button" class="btn-ghost" data-app="creplay">${IC.replay} Replay</button>
-        <div class="seg" role="group" aria-label="Playback speed"><button type="button" data-app="speed" data-v="1" aria-pressed="${APP.speed === 1}">1×</button><button type="button" data-app="speed" data-v="2" aria-pressed="${APP.speed === 2}">2×</button></div></div></div>
+  stage.innerHTML = `<div class="cmp-top">
+      <button type="button" class="ib" data-app="cpause" id="cpause" aria-label="Pause">${IC.pause}</button>
+      <button type="button" class="ib" data-app="creplay" aria-label="Replay from the start">${IC.replay}</button>
+      <div class="tlw"><p id="phase" aria-live="polite">${PHASE[1]}</p>
+        <div class="tl-row"><div class="tl-bar" id="tlbar" role="slider" tabindex="0" aria-label="Walkthrough position. Use arrow keys to jump between steps" aria-valuemin="0"></div><span class="tl-time" id="tltime">0:00 / 0:00</span></div></div>
+      <div class="seg" role="group" aria-label="Playback speed"><button type="button" data-app="speed" data-v="1" aria-pressed="${APP.speed === 1}">1×</button><button type="button" data-app="speed" data-v="2" aria-pressed="${APP.speed === 2}">2×</button></div></div>
     <div class="compare-phones">
-      <div class="cmp-col"><div class="cmp-lbl"><span class="pill today">Before</span>Swiggy today</div><div class="phone-wrap"><div id="host-cb"></div><ol class="rail pain" id="rail-cb" aria-label="Pain points"></ol></div><div class="caption idle" id="cap-cb" aria-live="polite"></div><div class="cmp-met" id="met-cb"></div><div id="done-cb"></div></div>
-      <div class="cmp-col"><div class="cmp-lbl"><span class="pill mm">After</span>Swiggy with Meal Match</div><div class="phone-wrap"><div id="host-ca"></div><ol class="rail win" id="rail-ca" aria-label="Milestones"></ol></div><div class="caption idle" id="cap-ca" aria-live="off"></div><div class="cmp-met" id="met-ca"></div><div id="done-ca"></div></div>
+      <div class="cmp-col"><div class="phone-wrap" id="wrap-cb"><div id="host-cb"></div><div class="dimmer off" id="dim-cb"></div></div>
+        <div class="cmp-info"><div class="cmp-lbl"><span class="pill today">Before</span>Swiggy today</div><div class="caption idle" id="cap-cb" aria-live="polite"></div><div class="cmp-met" id="met-cb"></div><ol class="rail pain inl" id="rail-cb" aria-label="Pain points"></ol></div></div>
+      <div class="cmp-col"><div class="phone-wrap" id="wrap-ca"><div id="host-ca"></div><div class="dimmer off" id="dim-ca"></div></div>
+        <div class="cmp-info"><div class="cmp-lbl"><span class="pill mm">After</span>Swiggy with Meal Match</div><div class="caption idle" id="cap-ca" aria-live="polite"></div><div class="cmp-met" id="met-ca"></div><ol class="rail win inl" id="rail-ca" aria-label="Milestones"></ol></div></div>
     </div>
     <div id="summary"></div>
     <div class="cmp-table-wrap"><table class="cmp"><caption class="sr-only">Swiggy today versus Swiggy with Meal Match for the same multi-dish task</caption>
       <thead><tr><th scope="col">Same task</th><th scope="col">Swiggy today</th><th scope="col">Swiggy with Meal Match</th></tr></thead>
       <tbody>${rows.map(r => `<tr><th scope="row">${esc(r[0])}</th><td>${esc(r[1])}</td><td class="after">${esc(r[2])}</td></tr>`).join('')}
-        <tr class="run"><th scope="row">Walkthrough above</th><td id="run-wb">Playing…</td><td class="after" id="run-wa">Playing…</td></tr>
+        <tr class="run"><th scope="row">Walkthrough above</th><td id="run-wb">Playing…</td><td class="after" id="run-wa">Waiting…</td></tr>
         <tr class="run"><th scope="row">Your own run</th><td id="run-mb"></td><td class="after" id="run-ma"></td></tr></tbody></table></div>
-    <p class="cmp-foot">“Swiggy today” cells describe only what the reference screenshots show. All numbers come from this prototype with fictional data (the scripted walkthrough, or your own clicks in the Before / After tabs). They are not real-world measurements.</p>`;
+    <p class="cmp-foot">“Swiggy today” cells describe only what the reference screenshots show. All numbers come from this prototype with fictional data (the scripted walkthrough, or your own clicks in the Before / After tabs), counted up to the first restaurant with both dishes. They are not real-world measurements.</p>`;
   fillManualRows();
   APP.phones = {
     cb: new Phone(document.getElementById('host-cb'), 'before', {small:true, onUpdate: ph => updCmpMetrics('cb', ph)}),
     ca: new Phone(document.getElementById('host-ca'), 'after', {small:true, meal:[], noFlip:true, onUpdate: ph => updCmpMetrics('ca', ph)})
   };
+  buildTimeline(); fitCompare();
   startCompare(!reduceMotion());
 }
 function fillManualRows(){
-  const f = (s, unit) => s ? `<span class="run-lbl">your run in this demo</span><br>${plural(s.pages, unit, unit + 's')} opened · ${s.taps} taps · ${fmtTime(s.time)}${s.ended ? '' : ' (not finished)'}` : 'Not run yet. Use “Try it yourself” in the Before / After tab.';
+  const f = (s, unit) => s ? `<span class="run-lbl">your run in this demo</span><br>${plural(s.pages, unit, unit + 's')} opened · ${s.taps} taps · ${fmtTime(s.time)}${s.ended ? ' to first match' : ' (no match yet)'}` : 'Not run yet. Use “Try it yourself” in the Before / After tab.';
   const b = document.getElementById('run-mb'), a = document.getElementById('run-ma');
-  if (b) b.innerHTML = f(APP.manual.before, 'menu'); if (a) a.innerHTML = f(APP.manual.after, 'restaurant page');
+  if (b) b.innerHTML = f(APP.manual.before, 'menu'); if (a) a.innerHTML = f(APP.manual.after, 'menu');
 }
-function updCmpMetrics(k, ph){ const el = document.getElementById('met-' + k); if (el) el.innerHTML = metricHTML(ph, k === 'cb' ? 'menus opened' : 'restaurant pages'); updProgress(); }
-function updProgress(){
-  const ps = [APP.players.cb, APP.players.ca].filter(Boolean), bar = document.getElementById('prog'); if (!bar || !ps.length) return;
-  bar.style.width = (ps.reduce((s, p) => s + (p.done ? 1 : p.step / p.script.length), 0) / ps.length * 100).toFixed(1) + '%';
+function updCmpMetrics(k, ph){
+  updProgress();
+  if (APP.statShown && APP.statShown[k]) return;
+  const el = document.getElementById('met-' + k); if (el) el.innerHTML = metricHTML(ph, 'menus opened');
 }
-function startCompare(autoplay){
-  Object.values(APP.players).forEach(p => p && p.cancel(false));
-  const {cb, ca} = APP.phones; cb.reset(); ca.reset(); APP.paused = false; APP.scripted = {};
-  ['cb', 'ca'].forEach(k => { document.getElementById('done-' + k).innerHTML = ''; document.getElementById('rail-' + k).innerHTML = ''; });
-  document.getElementById('summary').innerHTML = '';
-  document.getElementById('run-wb').textContent = 'Playing…'; document.getElementById('run-wa').textContent = 'Playing…';
-  const cp = document.getElementById('cpause'); if (cp) cp.innerHTML = `${IC.pause} Pause`;
-  const mk = (k, ph, script) => new Player(ph, script, {
-    onCaption: (t, n, tot) => { setCaption(k, t, n, tot); updProgress(); },
-    onMark: t => { const r = document.getElementById('rail-' + k); if (r) r.insertAdjacentHTML('beforeend', `<li><span class="ix" aria-hidden="true">${k === 'cb' ? '✕' : '✓'}</span>${esc(t)}</li>`); },
-    onDone: () => {
-      const s = snapshot(ph); APP.scripted[k] = s;
-      const unit = k === 'cb' ? plural(s.pages, 'menu', 'menus') : plural(s.pages, 'restaurant page', 'restaurant pages');
-      setCaption(k, k === 'cb' ? 'Found the one restaurant with both dishes.' : 'Found, added and checked out, with availability rechecked.', 0, 0, 'done');
-      document.getElementById('done-' + k).innerHTML = `<div class="done-badge">✓ Full combination found in ${fmtTime(s.time)} · ${s.taps} taps · ${unit} opened</div>`;
-      document.getElementById(k === 'cb' ? 'run-wb' : 'run-wa').innerHTML = `<span class="run-lbl">scripted walkthrough</span><br>${unit} opened · ${s.taps} taps · ${fmtTime(s.time)} to find a full match`;
-      updProgress(); maybeSummary();
-    },
-    onCancel: (p, byUser) => { if (byUser) setCaption(k, 'You took over this phone. Use Replay to restart the walkthrough.', 0, 0, 'idle'); }
+function updProgress(){ updTimeline(); }
+/* ----- YouTube-style seek bar: one segment per walkthrough step ----- */
+const EST_B = [6000, 5400, 8700, 8800, 8800, 10300], EST_A = [3550, 3650, 4150, 5200, 4150, 3850, 3050, 3150];   // step lengths in ms at 1×, measured from the scripts
+function buildTimeline(){
+  const bar = document.getElementById('tlbar'); if (!bar) return;
+  const S = APP.segs = [...SCRIPT_BEFORE.map((x, i) => ({a:'b', cap:x[0], est:EST_B[i] || 3000})), ...SCRIPT_AFTER_TASK.map((x, i) => ({a:'a', cap:x[0], est:EST_A[i] || 3000}))];
+  APP.totalEst = S.reduce((t, x) => t + x.est, 0);
+  bar.setAttribute('aria-valuemax', S.length - 1);
+  bar.innerHTML = S.map((x, g) => `<span class="sg ${x.a}${x.a === 'a' && S[g - 1] && S[g - 1].a === 'b' ? ' first' : ''}" style="flex:${x.est} 1 0"><i></i></span>`).join('') + '<span class="tl-knob" id="tlknob"></span><span class="tl-tip" id="tltip"></span>';
+  const segAt = cx => { const els = [...bar.querySelectorAll('.sg')]; for (let i = 0; i < els.length; i++){ if (cx <= els[i].getBoundingClientRect().right + 1) return i; } return els.length - 1; };
+  const tip = cx => {
+    const g = segAt(cx), x = APP.segs[g], br = bar.getBoundingClientRect(), t = document.getElementById('tltip');
+    t.innerHTML = `<b>${x.a === 'b' ? 'Today' : 'Meal Match'} · ${fmtTime(APP.segs.slice(0, g).reduce((s, y) => s + y.est, 0))}</b>${esc(x.cap)}`;
+    t.style.left = Math.max(120, Math.min(br.width - 120, cx - br.left)) + 'px';
+    bar.querySelectorAll('.sg').forEach((el, i) => el.classList.toggle('hov', i === g));
+    return g;
+  };
+  let dragging = false;
+  bar.addEventListener('pointerdown', e => { dragging = true; bar.setPointerCapture(e.pointerId); bar.classList.add('drag'); tip(e.clientX); });
+  bar.addEventListener('pointermove', e => tip(e.clientX));
+  bar.addEventListener('pointerup', e => { if (!dragging) return; dragging = false; bar.classList.remove('drag'); seekCompare(segAt(e.clientX)); });
+  bar.addEventListener('pointerleave', () => { if (!dragging) bar.querySelectorAll('.sg.hov').forEach(el => el.classList.remove('hov')); });
+  bar.addEventListener('keydown', e => {
+    const {g, frac} = curPos(), n = APP.segs.length;
+    if (e.key === 'ArrowRight'){ e.preventDefault(); seekCompare(Math.min(n - 1, g + 1)); }
+    else if (e.key === 'ArrowLeft'){ e.preventDefault(); seekCompare(Math.max(0, frac > 0.2 ? g : g - 1)); }
+    else if (e.key === 'Home'){ e.preventDefault(); seekCompare(0); }
+    else if (e.key === 'End'){ e.preventDefault(); seekCompare(n - 1); }
   });
-  const ps = {cb: mk('cb', cb, SCRIPT_BEFORE), ca: mk('ca', ca, SCRIPT_AFTER_TASK)};
-  APP.players = ps; cb.m.scripted = ca.m.scripted = true;
+}
+function curPos(){
+  const pb = APP.players.cb, pa = APP.players.ca, NB = SCRIPT_BEFORE.length, S = APP.segs || [];
+  const f = (p, est) => Math.max(0, Math.min(1, (p.pt - p.stepPt) / est));
+  if (!pb || !pb.started) return {g:0, frac:0};
+  if (!pb.done) return {g:pb.step, frac:f(pb, S[pb.step].est)};
+  if (!pa || !pa.started) return {g:NB, frac:0};
+  if (!pa.done) return {g:NB + pa.step, frac:f(pa, S[NB + pa.step].est)};
+  return {g:S.length, frac:0};
+}
+function updTimeline(){
+  const bar = document.getElementById('tlbar'); if (!bar || !APP.segs) return;
+  const {g, frac} = curPos(), els = bar.querySelectorAll('.sg'), S = APP.segs;
+  els.forEach((el, i) => { el.firstChild.style.width = (i < g ? 100 : i === g ? frac * 100 : 0) + '%'; });
+  const k = document.getElementById('tlknob');
+  if (k && els.length){ const el = els[Math.min(g, els.length - 1)]; k.style.left = (g >= els.length ? el.offsetLeft + el.offsetWidth : el.offsetLeft + el.offsetWidth * frac) + 'px'; }
+  const done = S.slice(0, Math.min(g, S.length)).reduce((t, x) => t + x.est, 0) + (g < S.length ? frac * S[g].est : 0);
+  const tt = document.getElementById('tltime'); if (tt) tt.textContent = `${fmtTime(done)} / ${fmtTime(APP.totalEst)}`;
+  bar.setAttribute('aria-valuenow', Math.min(g, S.length - 1)); bar.setAttribute('aria-valuetext', S[Math.min(g, S.length - 1)].cap);
+}
+function seekCompare(g){ startCompare(!APP.paused, g); }
+function statCard(k){
+  const b = APP.scripted.cb, s = APP.scripted[k], good = k === 'ca';
+  const d = (x, y, f) => good && b ? `<em>${x - y <= 0 ? '−' : '+'}${f(Math.abs(x - y))}</em>` : '';
+  const cell = (val, lbl, delta) => `<div><b>${val}</b><span>${lbl}</span>${delta}</div>`;
+  const el = document.getElementById('met-' + k); if (!el) return;
+  APP.statShown[k] = true;
+  el.innerHTML = `<div class="statcard ${good ? 'good' : 'bad'}"><h4>${good ? 'Solved with Meal Match' : 'The problem today'}</h4><div class="g3">
+    ${cell(fmtTime(s.time), 'time to first match', d(s.time, b ? b.time : 0, ms => fmtTime(ms)))}
+    ${cell(s.taps, 'taps', d(s.taps, b ? b.taps : 0, n => n))}
+    ${cell(s.pages, 'menus opened', d(s.pages, b ? b.pages : 0, n => n))}</div>
+    <p>${good ? 'The match is on the results. No menu checking.' : `${plural(Math.max(0, s.pages - 1), 'dead end', 'dead ends')} before a match: missing dishes and an unavailable chaat.`}</p></div>`;
+}
+// scale both phones so the bar + phones (with info beside them) fit one laptop screen
+function fitCompare(){
+  if (APP.tab !== 'compare') return;
+  const top = document.querySelector('.cmp-top'), mobile = window.innerWidth <= 900;
+  let sc = 1;
+  if (!mobile && top){
+    const H = window.innerHeight - top.offsetHeight - 12 - 24;
+    const W = stage.clientWidth - 40, scW = (W - 2 * 236 - 2 * 14 - 28) / (2 * 372);
+    sc = Math.max(0.5, Math.min(1.12, H / 720, scW));
+  }
+  ['cb', 'ca'].forEach(k => {
+    const host = document.getElementById('host-' + k), ph = host && host.querySelector('.phone'); if (!ph) return;
+    if (mobile){ host.style.width = host.style.height = ''; ph.style.transform = ''; ph.style.transformOrigin = ''; }
+    else { host.style.width = (372 * sc) + 'px'; host.style.height = (720 * sc) + 'px'; ph.style.transform = `scale(${sc})`; ph.style.transformOrigin = '0 0'; }
+  });
+  updTimeline();
+}
+function focusCompare(){
+  const top = document.querySelector('.cmp-top'); if (!top) return;
+  const y = top.getBoundingClientRect().top + window.scrollY - 8;
+  window.scrollTo({top: Math.max(0, y), behavior: reduceMotion() ? 'auto' : 'smooth'});
+}
+window.addEventListener('resize', () => { clearTimeout(APP.rt); APP.rt = setTimeout(fitCompare, 120); });
+// wait that respects pause and speed; returns false if this run was replaced
+async function appWait(ms, token){
+  let left = ms;
+  while (left > 0){ if (token !== APP.cmpToken) return false; if (APP.paused){ await sleep(80); continue; } await sleep(60 / APP.speed); left -= 60; }
+  return token === APP.cmpToken;
+}
+async function startCompare(autoplay, seekStep = 0){
+  const token = APP.cmpToken = (APP.cmpToken || 0) + 1;
+  Object.values(APP.players).forEach(p => p && p.cancel(false));
+  const {cb, ca} = APP.phones; cb.reset(); ca.reset(); APP.scripted = {}; APP.statShown = {};
+  ['cb', 'ca'].forEach(k => { document.getElementById('rail-' + k).innerHTML = ''; document.getElementById('wrap-' + k).classList.remove('faded'); const d = document.getElementById('dim-' + k); d.className = 'dimmer off'; d.innerHTML = ''; });
+  document.getElementById('summary').innerHTML = '';
+  document.getElementById('run-wb').textContent = 'Playing…'; document.getElementById('run-wa').textContent = 'Waiting…';
+  const cp = document.getElementById('cpause');
+  APP.paused = !autoplay; setPauseBtn();
+  const runRow = (k, s) => { document.getElementById(k === 'cb' ? 'run-wb' : 'run-wa').innerHTML = `<span class="run-lbl">scripted walkthrough</span><br>${fmtTime(s.time)} to first match · ${s.taps} taps · ${plural(s.pages, 'menu', 'menus')} opened`; };
+  const mk = (k, ph, script, extra) => new Player(ph, script, Object.assign({
+    onCaption: (t, n, tot) => { setCaption(k, t, n, tot); updProgress(); },
+    onMark: t => addRail(k, t, k === 'cb'),
+    onCancel: (p, byUser) => { if (byUser) setCaption(k, 'You took over this phone. Use Replay to restart the story.', 0, 0, 'idle'); }
+  }, extra));
+  const pb = mk('cb', cb, SCRIPT_BEFORE, {
+    onDone: () => { const s = snapshot(cb); APP.scripted.cb = s; setCaption('cb', `Found the one restaurant with both dishes, after ${plural(s.pages, 'menu', 'menus')}.`, 0, 0, 'done'); statCard('cb'); runRow('cb', s); updProgress(); }
+  });
+  const pa = mk('ca', ca, SCRIPT_AFTER_TASK, {
+    onEvent: (name, p) => { if (name !== 'solved') return;
+      const s = snapshot(ca); APP.scripted.ca = s; statCard('ca'); runRow('ca', s); maybeSummary();
+      setPhase(3);
+      if (!p.ff){ setDim('ca', true, 'Act 3', 'Here’s more you can do', 'Refine your meal anytime'); appWait(2600, token).then(ok => { if (ok) setDim('ca', false); }); }
+    },
+    onDone: () => { setCaption('ca', 'Refine anytime: tap any dish to leave it out or bring it back.', 0, 0, 'done'); setPhase('end'); updProgress(); }
+  });
+  APP.players = {cb:pb, ca:pa}; cb.m.scripted = ca.m.scripted = true;
+  const NB = SCRIPT_BEFORE.length; pb.ffUntil = Math.min(seekStep, NB); pa.ffUntil = Math.max(0, seekStep - NB);
+  if (!autoplay){ pb.pause(); pa.pause(); }
   setCaption('cb', 'Ready: the task is sambar vada + dahi papdi chaat from one restaurant.', 0, 0, 'idle');
-  setCaption('ca', 'Ready: same task, with Meal Match.', 0, 0, 'idle');
+  setCaption('ca', 'Plays after Swiggy today finishes.', 0, 0, 'idle');
   updCmpMetrics('cb', cb); updCmpMetrics('ca', ca);
-  if (autoplay) setTimeout(() => { if (APP.players === ps){ ps.cb.run(); ps.ca.run(); } }, 800);
-  else { APP.paused = true; ps.cb.pause(); ps.ca.pause(); if (cp) cp.innerHTML = `${IC.play} Play`; ps.cb.run(); ps.ca.run(); }
+  setPhase(1); setDim('ca', true, 'Up next', 'Same task with Meal Match', 'Plays after the current journey');
+  fitCompare(); updTimeline();
+  if (!seekStep){ setTimeout(focusCompare, 250); if (!(await appWait(1300, token))) return; }
+  await pb.run();
+  if (token !== APP.cmpToken || pb.cancelled) return;
+  problemOverlay(seekStep < NB);
+  if (seekStep < NB){
+    setPhase('gap');
+    if (!(await appWait(4200, token))) return;
+    document.getElementById('wrap-cb').classList.add('faded');
+    setDim('ca', true, 'Act 2', 'Now, with Meal Match', 'Same two dishes');
+    if (!(await appWait(1500, token))) return;
+  } else document.getElementById('wrap-cb').classList.add('faded');
+  setDim('ca', false); setPhase(2);
+  await pa.run();
+}
+function setPauseBtn(){ const b = document.getElementById('cpause'); if (!b) return; b.innerHTML = APP.paused ? IC.play : IC.pause; b.setAttribute('aria-label', APP.paused ? 'Play' : 'Pause'); }
+function problemOverlay(animate){
+  const d = document.getElementById('dim-cb'), s = APP.scripted.cb; if (!d || !s) return;
+  const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h17M14 5.5 20.5 12 14 18.5"/></svg>';
+  d.className = 'dimmer prob';
+  d.innerHTML = `<div class="pcard" role="status"><div class="ey"><span class="x" aria-hidden="true">✕</span>The problem today</div>
+    <div class="nums"><div><b data-to="${s.time}" data-kind="t">${fmtTime(s.time)}</b><span>to first match</span></div><div><b data-to="${s.taps}">${s.taps}</b><span>taps</span></div><div><b data-to="${s.pages}">${s.pages}</b><span>menus opened</span></div></div>
+    <p>${plural(Math.max(0, s.pages - 1), 'dead end', 'dead ends')} before a single match.</p>
+    <button type="button" class="nextcta" data-app="seekafter">Now with Meal Match ${arrow}</button></div>`;
+  if (!animate || reduceMotion()) return;
+  const t0 = performance.now(), els = d.querySelectorAll('[data-to]');
+  const tick = now => { const k = Math.min(1, (now - t0 - 250) / 900); if (k < 0) return requestAnimationFrame(tick);
+    els.forEach(el => { const v = +el.dataset.to * (1 - Math.pow(1 - k, 3)); el.textContent = el.dataset.kind === 't' ? fmtTime(v) : Math.round(v); });
+    if (k < 1) requestAnimationFrame(tick); };
+  els.forEach(el => el.textContent = el.dataset.kind === 't' ? '0:00' : '0');
+  requestAnimationFrame(tick);
 }
 function maybeSummary(){
   const b = APP.scripted.cb, a = APP.scripted.ca; if (!b || !a) return;
   document.getElementById('summary').innerHTML = `<section class="summary" aria-label="Walkthrough summary"><h2>Same task, two journeys</h2>
-    <p>In this scripted walkthrough with demo data, the user found a restaurant with both dishes after opening <b>${plural(b.pages, 'menu', 'menus')}</b> today, versus <b>${plural(a.pages, 'restaurant page', 'restaurant pages')}</b> with Meal Match.</p>
-    <div class="sum-grid"><div class="sum-card"><b>Swiggy today</b><ul><li>${plural(b.pages, 'menu', 'menus')} opened, ${b.taps} taps, ${fmtTime(b.time)}</li><li>Coverage only visible inside each menu</li><li>Dead ends: menus missing a dish, an unavailable chaat</li></ul></div>
-    <div class="sum-card" style="background:#F2FAF6"><b>With Meal Match</b><ul><li>${plural(a.pages, 'restaurant page', 'restaurant pages')} opened, ${a.taps} taps, ${fmtTime(a.time)}</li><li>“2/2 required available” right on the results</li><li>Availability rechecked on ADD and at checkout</li></ul></div></div>
-    <p class="cmp-foot" style="margin-top:10px">Times are walkthrough time at 1× speed; taps are the scripted taps. Not real-world measurements.</p></section>`;
+    <p>Counted up to the first restaurant with both dishes: <b>${fmtTime(b.time)} → ${fmtTime(a.time)}</b>, <b>${b.taps} → ${a.taps} taps</b>, <b>${plural(b.pages, 'menu', 'menus')} → ${plural(a.pages, 'menu', 'menus')}</b> opened.</p>
+    <div class="sum-grid"><div class="sum-card"><b>Swiggy today</b><ul><li>Coverage only visible inside each menu</li><li>${plural(Math.max(0, b.pages - 1), 'dead end', 'dead ends')}: missing dishes, an unavailable chaat</li></ul></div>
+    <div class="sum-card" style="background:#F2FAF6"><b>With Meal Match</b><ul><li>“2/2 dishes available” right on the results</li><li>Add, leave out or bring back any dish, anytime</li></ul></div></div>
+    <p class="cmp-foot" style="margin-top:10px">Scripted walkthrough with demo data; times at 1× speed. Not real-world measurements.</p></section>`;
 }
 
 /* ----- global controls ----- */
@@ -1567,11 +1800,12 @@ document.addEventListener('click', e => {
   if (a === 'speed'){ APP.speed = +b.dataset.v; document.querySelectorAll('[data-app="speed"]').forEach(x => x.setAttribute('aria-pressed', x === b)); return; }
   if (a === 'cpause'){
     const ps = Object.values(APP.players).filter(p => p && !p.done && !p.cancelled);
-    if (!ps.length){ startCompare(true); return; }
+    if (!ps.length && !APP.paused){ startCompare(true); return; }
     APP.paused = !APP.paused; ps.forEach(p => APP.paused ? p.pause() : p.resume());
-    b.innerHTML = APP.paused ? `${IC.play} Play` : `${IC.pause} Pause`; return;
+    setPauseBtn(); return;
   }
   if (a === 'creplay'){ startCompare(true); return; }
+  if (a === 'seekafter'){ seekCompare(SCRIPT_BEFORE.length); return; }
   if (a === 'watch'){ startTabPlayer(kind, true); return; }
   if (a === 'try'){ tryYourself(kind); return; }
   if (a === 'pause'){ const p = APP.players[kind]; if (!p) return; APP.paused = !APP.paused; APP.paused ? p.pause() : p.resume(); updatePanel(kind); }
@@ -1579,6 +1813,7 @@ document.addEventListener('click', e => {
 // live time readouts without re-rendering the phones
 setInterval(() => {
   Object.values(APP.phones).forEach(ph => ph.root.querySelectorAll('[data-m="time"]').forEach(n => n.textContent = fmtTime(ph.elapsed())));
+  if (APP.tab === 'compare') updTimeline();
   if (APP.tab === 'compare') ['cb', 'ca'].forEach(k => { const ph = APP.phones[k], el = document.getElementById('met-' + k); if (ph && el){ el.querySelectorAll('[data-m="time"]').forEach(n => n.textContent = fmtTime(ph.elapsed())); el.querySelectorAll('[data-m="taps"]').forEach(n => n.textContent = ph.m.taps); } });
   else { const ph = APP.phones[APP.tab], p = document.getElementById('panel'); if (ph && p){ p.querySelectorAll('[data-m="time"]').forEach(n => n.textContent = fmtTime(ph.elapsed())); p.querySelectorAll('[data-m="taps"]').forEach(n => n.textContent = ph.m.taps); if (!ph.m.scripted && ph.m.start) APP.manual[APP.tab] = snapshot(ph); } }
 }, 250);
