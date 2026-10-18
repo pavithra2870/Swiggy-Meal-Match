@@ -51,7 +51,6 @@ button{cursor:pointer}
 .btn-ghost svg{width:16px;height:16px}
 #stage{max-width:1180px;margin:0 auto;padding:6px 20px 24px}
 #stage.wide{max-width:1440px}
-footer{text-align:center;padding:12px 20px 32px;color:var(--muted);font-size:13px}
 footer span{display:inline-block;border:1px solid #D0D0DA;background:#fff;border-radius:999px;padding:6px 12px}
 
 /* ---------- phone frame ---------- */
@@ -163,7 +162,6 @@ footer span{display:inline-block;border:1px solid #D0D0DA;background:#fff;border
 .ilog .tag{flex:none;width:86px;text-align:center}
 .ilog-empty{font-size:13px;color:#6A6D73;margin:0}
 .panel h3.sm{margin:16px 0 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5D6066}
-.panel .foot{margin:14px 0 0;font-size:12px;color:#6A6D73}
 .panel .mrow .metric b{font-size:19px}
 .stage-grid.tab-before{grid-template-columns:168px auto minmax(300px,380px);gap:20px}
 .stage-grid.tab-after{grid-template-columns:auto 168px minmax(300px,380px);gap:20px}
@@ -511,15 +509,15 @@ footer span{display:inline-block;border:1px solid #D0D0DA;background:#fff;border
 .sum-card{border-radius:14px;padding:12px 14px;background:var(--bg)}
 .sum-card b{font-size:15px}
 .sum-card ul{margin:6px 0 0;padding-left:18px;font-size:14px;color:#2B2E33}
-.cmp-table-wrap{margin-top:24px;background:#fff;border-radius:20px;border:1px solid var(--line);overflow-x:auto}
-table.cmp{width:100%;border-collapse:collapse;min-width:640px}
-.cmp th,.cmp td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);font-size:14px}
-.cmp thead th{font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:#5D6066;background:#FAFAFC}
-.cmp tbody th{font-weight:700;width:26%}
-.cmp td.after{background:#FBFEFC}
-.cmp tr.run td,.cmp tr.run th{background:#F4F6FD}
-.run-lbl{display:inline-block;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#4A5A8C;border:1.5px dashed #9AA6C8;border-radius:6px;padding:1px 6px;margin-bottom:4px}
-.cmp-foot{margin:12px 2px 0;color:#5D6066;font-size:13px}
+.cmp-table-wrap{margin-top:24px;background:#fff;border-radius:16px;border:1px solid var(--line);overflow:hidden;overflow-x:auto}
+table.cmp{width:100%;border-collapse:collapse;min-width:680px;table-layout:fixed}
+.cmp th,.cmp td{padding:16px 20px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);font-size:14px;line-height:1.5;color:var(--ink-2)}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+.cmp thead th{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:#fff;border-bottom:1px solid var(--ink);padding-top:14px;padding-bottom:12px}
+.cmp thead th:nth-child(3){color:var(--green)}
+.cmp tbody th{font-weight:700;color:var(--ink);width:24%}
+.cmp td+td,.cmp th+td,.cmp th+th{border-left:1px solid var(--line)}
+.cmp td.after{color:var(--ink)}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
@@ -546,8 +544,7 @@ table.cmp{width:100%;border-collapse:collapse;min-width:640px}
   .cmp-met{padding:0 16px}
   .done-badge{width:calc(100% - 32px)}
   .summary,.cmp-table-wrap{margin-left:16px;margin-right:16px}
-  .cmp-foot{margin:12px 16px 0}
-}
+  }
 @media (prefers-reduced-motion:reduce){
   .finger{transition:none}
   .sk,.ph-rot span{animation:none}
@@ -599,18 +596,11 @@ table.cmp{width:100%;border-collapse:collapse;min-width:640px}
   </div>
 </header>
 <main id="stage"></main>
-
 <div id="live" class="sr-only" aria-live="polite"></div>
 
 <script>
 'use strict';
 let APP_ILOG;
-/* =========================================================
-   DISHES: canonical list + deterministic matching rules.
-   An item matches a dish when every token group has at least
-   one token in the normalised item name. Sambar vada is checked
-   before medu vada, so "Medu Vada" never counts as sambar vada.
-   ========================================================= */
 const DISHES = [
   {id:'sambar-vada',      name:'Sambar vada',      aliases:['sambar vadai','sambhar vada','vada sambar'], rule:[['sambar','sambhar'],['vada','vadai','vade']], art:'vada'},
   {id:'medu-vada',        name:'Medu vada',        aliases:['uddina vada'], rule:[['medu','uddina'],['vada','vadai']], art:'meduvada'},
@@ -637,14 +627,6 @@ function classify(name){
   return null;
 }
 
-/* =========================================================
-   RESTAURANTS: fictional, Bengaluru, all pure veg.
-   r1 nearby complete match (its chaat sells out on ADD: edge case)
-   r5 far complete match (also has the brownie)
-   r8 second complete match
-   r2, r3 partial matches · r4 chaat in catalogue but unavailable now
-   r6, r7 none of the searched dishes (r7 has Medu Vada only): hidden
-   ========================================================= */
 const RESTAURANTS_SRC = [
   {id:'r1', name:'Udupi Upahar Bhavan', area:'Jayanagar', rating:4.5, reviews:'3.1K+', eta:18, dist:1.2, forTwo:200, offer:'Items at ₹49', free:true, menu:[
     {cat:'Recommended', items:[{n:'Sambar Vadai',p:70,variants:[['2 pcs',70],['1 pc',45]],rt:[4.6,212],desc:'Crisp urad vadai soaked in hot tiffin sambar, topped with onion and coriander.'},{n:'Masala Dosa',p:90,custom:true,rt:[4.5,340],desc:'Ghee-roast dosa with potato palya, chutney and sambar.'}]},
@@ -695,9 +677,6 @@ function buildData(){
   return {list:data, byId:Object.fromEntries(data.map(r => [r.id, r])), items};
 }
 
-/* =========================================================
-   MATCHER
-   ========================================================= */
 function itemsFor(r, dishId){ const out = []; r.menu.forEach(c => c.items.forEach(it => { if (it.dish === dishId) out.push(it); })); return out; }
 function matchRestaurant(r, meal){
   meal = meal.filter(m => m.req);   // only selected dishes take part in the match
@@ -727,9 +706,6 @@ function matchAll(meal, sort, data){
   return {complete:by('complete'), partial:by('partial'), hidden:by('hidden')};
 }
 
-/* =========================================================
-   HELPERS + ILLUSTRATIONS
-   ========================================================= */
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const rupee = n => '₹' + n;
 const fmtTime = ms => { const s = Math.max(0, Math.round(ms / 1000)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
@@ -792,9 +768,6 @@ const art = kind => `<span class="art" aria-hidden="true">${svgArt(kind)}</span>
 const artOf = it => it.art || (DISH[it.dish] || {}).art || 'generic';
 const STAR = '<span class="star" aria-hidden="true">★</span>';
 
-/* =========================================================
-   PHONE: one interactive phone, Before or After
-   ========================================================= */
 class Phone {
   constructor(host, kind, opts = {}){
     this.kind = kind; this.opts = opts;
@@ -1231,11 +1204,6 @@ class Phone {
   }
 }
 
-/* =========================================================
-   PLAYER: scripted user-POV walkthrough driving a Phone.
-   A finger moves to real elements, presses, types and scrolls;
-   every action goes through the same handlers a real tap hits.
-   ========================================================= */
 class Player {
   constructor(phone, script, hooks = {}){
     this.ph = phone; this.script = script; this.hooks = hooks;
@@ -1386,9 +1354,6 @@ class Player {
   async clear(sel){ const el = await this.find(sel); el.value = ''; el.dispatchEvent(new Event('input', {bubbles:true})); await this.wait(200); }
 }
 
-/* =========================================================
-   SCRIPTS: what the "user" does in each walkthrough
-   ========================================================= */
 const menuVisit = (rid, open, verdict, pain, found) => [open, async p => {
   await p.tap(`.rsec [data-fk="b-open-${rid}"]`);
   if (rid === 'r2') p.note('obs', 'Coverage hidden until you open a menu');
@@ -1437,9 +1402,6 @@ const SCRIPT_AFTER_TOUR = [
   ['Cart shows a meal check; checkout revalidates availability', async p => { await p.tap('[data-fk="a-cart"]'); await p.wait(700); await p.tap('[data-fk="a-checkout"]'); await p.wait(1300); p.mark('Availability rechecked'); await p.wait(500); }]
 ];
 
-/* =========================================================
-   PANEL NOTES (Before / After tabs)
-   ========================================================= */
 const SHORT = {
   'before:search': ['hyp','People think in meals, not dishes'],
   'before:results': ['obs','Each result shows one dish only'],
@@ -1454,9 +1416,6 @@ const SHORT = {
 const LBL = {obs:'Observed', hyp:'Hypothesis', pro:'Proposed', cav:'Caveat'};
 APP_ILOG = {before:[], after:[]};
 
-/* =========================================================
-   APP: tabs, layouts, playback controls
-   ========================================================= */
 const APP = {tab:'compare', speed:1, phones:{}, players:{}, manual:{before:null, after:null}, scripted:{}, paused:false};
 const stage = document.getElementById('stage');
 
@@ -1539,7 +1498,6 @@ function updatePanel(kind){
       <h3 class="sm">Insights</h3>
       ${log.length ? `<ol class="ilog">${log.map(([t, x]) => `<li><span class="tag ${t}">${LBL[t]}</span><span>${esc(x)}</span></li>`).join('')}</ol>` : '<p class="ilog-empty">They pop up on the phone as the journey plays.</p>'}
       <h3 class="sm">${ph.m.scripted ? 'This walkthrough · scripted' : 'Your run · demo data'}</h3><div data-metrics="1"></div>
-      <p class="foot">${kind === 'before' ? 'Reconstructed from my own sessions. Evidence is directional, not usage data.' : 'Concept only. Fictional data; the demo stops before payment.'}</p>
       <div class="pctl" style="margin:14px 0 0">${kind === 'before' ? '<button type="button" class="btn-sec" data-app="tab" data-tab="after">Go to After →</button>' : '<button type="button" class="btn-sec" data-app="tab" data-tab="compare">Back to Compare →</button>'}</div>`;
   }
   const mc = panel.querySelector('[data-metrics]');
@@ -1585,20 +1543,13 @@ function mountCompare(){
     <div id="summary"></div>
     <div class="cmp-table-wrap"><table class="cmp"><caption class="sr-only">Swiggy today versus Swiggy with Meal Match for the same multi-dish task</caption>
       <thead><tr><th scope="col">Same task</th><th scope="col">Swiggy today</th><th scope="col">Swiggy with Meal Match</th></tr></thead>
-      <tbody>${rows.map(r => `<tr><th scope="row">${esc(r[0])}</th><td>${esc(r[1])}</td><td class="after">${esc(r[2])}</td></tr>`).join('')}
-       </tbody></table></div>`;
-  fillManualRows();
+      <tbody>${rows.map(r => `<tr><th scope="row">${esc(r[0])}</th><td>${esc(r[1])}</td><td class="after">${esc(r[2])}</td></tr>`).join('')}</tbody></table></div>`;
   APP.phones = {
     cb: new Phone(document.getElementById('host-cb'), 'before', {small:true, onUpdate: ph => updCmpMetrics('cb', ph)}),
     ca: new Phone(document.getElementById('host-ca'), 'after', {small:true, meal:[], noFlip:true, onUpdate: ph => updCmpMetrics('ca', ph)})
   };
   buildTimeline(); fitCompare();
   startCompare(!reduceMotion());
-}
-function fillManualRows(){
-  const f = (s, unit) => s ? `<span class="run-lbl">your run in this demo</span><br>${plural(s.pages, unit, unit + 's')} opened · ${s.taps} taps · ${fmtTime(s.time)}${s.ended ? ' to first match' : ' (no match yet)'}` : 'Not run yet. Use “Try it yourself” in the Before / After tab.';
-  const b = document.getElementById('run-mb'), a = document.getElementById('run-ma');
-  if (b) b.innerHTML = f(APP.manual.before, 'menu'); if (a) a.innerHTML = f(APP.manual.after, 'menu');
 }
 function updCmpMetrics(k, ph){
   updProgress();
@@ -1718,21 +1669,19 @@ async function startCompare(autoplay, seekStep = 0){
   const {cb, ca} = APP.phones; cb.reset(); ca.reset(); APP.scripted = {}; APP.statShown = {};
   ['cb', 'ca'].forEach(k => { document.getElementById('rail-' + k).innerHTML = ''; document.getElementById('wrap-' + k).classList.remove('faded'); const d = document.getElementById('dim-' + k); d.className = 'dimmer off'; d.innerHTML = ''; });
   document.getElementById('summary').innerHTML = '';
-  document.getElementById('run-wb').textContent = 'Playing…'; document.getElementById('run-wa').textContent = 'Waiting…';
   const cp = document.getElementById('cpause');
   APP.paused = !autoplay; setPauseBtn();
-  const runRow = (k, s) => { document.getElementById(k === 'cb' ? 'run-wb' : 'run-wa').innerHTML = `<span class="run-lbl">scripted walkthrough</span><br>${fmtTime(s.time)} to first match · ${s.taps} taps · ${plural(s.pages, 'menu', 'menus')} opened`; };
   const mk = (k, ph, script, extra) => new Player(ph, script, Object.assign({
     onCaption: (t, n, tot) => { setCaption(k, t, n, tot); updProgress(); },
     onMark: t => addRail(k, t, k === 'cb'),
     onCancel: (p, byUser) => { if (byUser) setCaption(k, 'You took over this phone. Use Replay to restart the story.', 0, 0, 'idle'); }
   }, extra));
   const pb = mk('cb', cb, SCRIPT_BEFORE, {
-    onDone: () => { const s = snapshot(cb); APP.scripted.cb = s; setCaption('cb', `Found the one restaurant with both dishes, after ${plural(s.pages, 'menu', 'menus')}.`, 0, 0, 'done'); statCard('cb'); runRow('cb', s); updProgress(); }
+    onDone: () => { const s = snapshot(cb); APP.scripted.cb = s; setCaption('cb', `Found the one restaurant with both dishes, after ${plural(s.pages, 'menu', 'menus')}.`, 0, 0, 'done'); statCard('cb'); updProgress(); }
   });
   const pa = mk('ca', ca, SCRIPT_AFTER_TASK, {
     onEvent: (name, p) => { if (name !== 'solved') return;
-      const s = snapshot(ca); APP.scripted.ca = s; statCard('ca'); runRow('ca', s); maybeSummary();
+      const s = snapshot(ca); APP.scripted.ca = s; statCard('ca'); maybeSummary();
       setPhase(3);
       if (!p.ff){ setDim('ca', true, 'Act 3', 'Here’s more you can do', 'Refine your meal anytime'); appWait(2600, token).then(ok => { if (ok) setDim('ca', false); }); }
     },
@@ -1782,8 +1731,7 @@ function maybeSummary(){
   document.getElementById('summary').innerHTML = `<section class="summary" aria-label="Walkthrough summary"><h2>Same task, two journeys</h2>
     <p>Counted up to the first restaurant with both dishes: <b>${fmtTime(b.time)} → ${fmtTime(a.time)}</b>, <b>${b.taps} → ${a.taps} taps</b>, <b>${plural(b.pages, 'menu', 'menus')} → ${plural(a.pages, 'menu', 'menus')}</b> opened.</p>
     <div class="sum-grid"><div class="sum-card"><b>Swiggy today</b><ul><li>Coverage only visible inside each menu</li><li>${plural(Math.max(0, b.pages - 1), 'dead end', 'dead ends')}: missing dishes, an unavailable chaat</li></ul></div>
-    <div class="sum-card" style="background:#F2FAF6"><b>With Meal Match</b><ul><li>“2/2 dishes available” right on the results</li><li>Add, leave out or bring back any dish, anytime</li></ul></div></div>
-    <p class="cmp-foot" style="margin-top:10px">Scripted walkthrough with demo data; times at 1× speed. Not real-world measurements.</p></section>`;
+    <div class="sum-card" style="background:#F2FAF6"><b>With Meal Match</b><ul><li>“2/2 dishes available” right on the results</li><li>Add, leave out or bring back any dish, anytime</li></ul></div></div></section>`;
 }
 
 /* ----- global controls ----- */
